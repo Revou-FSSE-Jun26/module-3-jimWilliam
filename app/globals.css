@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   RevoTech — "neon cyber-grid"
+   Tailwind v4 is configured here in CSS: every token below becomes a utility
+   (bg-void, text-cyan, border-line, font-mono ...). There is no tailwind.config.js.
+   ========================================================================== */
+
+@theme {
+  --color-void: #060914;
+  --color-surface: #0d1425;
+  --color-surface-2: #131c30;
+  --color-surface-3: #1a2540;
+  --color-line: #1c2740;
+  --color-line-bright: #2a3a5c;
+
+  --color-ink: #e6edf7;
+  --color-dim: #9aa8bf;
+  --color-faint: #6b7a93;
+
+  --color-cyan: #22d3ee;
+  --color-magenta: #e879f9;
+  --color-lime: #a3e635;
+  --color-amber: #fbbf24;
+  --color-rose: #fb7185;
+  --color-blue: #60a5fa;
+  --color-violet: #c084fc;
+
+  --radius-card: 1.125rem;
+
+  --animate-grid-drift: grid-drift 28s linear infinite;
+  --animate-scan: scan 7s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 2.6s ease-in-out infinite;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+  --animate-rise: rise 480ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+
+  @keyframes grid-drift {
+    from { background-position: 0 0, 0 0; }
+    to { background-position: 0 64px, 64px 0; }
+  }
+  @keyframes scan {
+    0%, 100% { transform: translateY(-10%); opacity: 0; }
+    15%, 85% { opacity: 1; }
+    50% { transform: translateY(110%); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+  }
+  @keyframes shimmer {
+    from { background-position: -200% 0; }
+    to { background-position: 200% 0; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* fonts come from next/font, which exposes them as CSS variables on <html> */
+@theme inline {
+  --font-sans: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "Cascadia Code", monospace;
+}
+
+/* ---------- base --------------------------------------------------------- */
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    background-color: var(--color-void);
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: var(--color-void);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-cyan) 35%, transparent);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-faint);
+  }
+
+  /* numbers line up in tables and price columns */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  * {
+    scrollbar-color: var(--color-line-bright) transparent;
+    scrollbar-width: thin;
+  }
+}
+
+/* ---------- reusable surfaces -------------------------------------------- */
+
+/* the animated grid behind every page */
+@utility bg-cyber-grid {
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--color-cyan) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--color-cyan) 7%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* a card that lights up along its border on hover */
+@utility panel {
+  background-color: color-mix(in oklab, var(--color-surface) 88%, transparent);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  backdrop-filter: blur(10px);
+}
+
+@utility glow-cyan {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--color-cyan) 55%, transparent),
+    0 10px 40px -12px color-mix(in oklab, var(--color-cyan) 55%, transparent);
+}
+
+@utility glow-magenta {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--color-magenta) 55%, transparent),
+    0 10px 40px -12px color-mix(in oklab, var(--color-magenta) 55%, transparent);
+}
+
+@utility text-neon {
+  text-shadow: 0 0 18px color-mix(in oklab, currentColor 55%, transparent);
+}
+
+@utility skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-2) 0%,
+    var(--color-surface-3) 45%,
+    var(--color-surface-2) 90%
+  );
+  background-size: 200% 100%;
+  animation: var(--animate-shimmer);
+  border-radius: 0.6rem;
+}
+
+/* clipped corner, the "HUD" shape used on stat tiles and badges */
+@utility clip-hud {
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+}
+
+/* ---------- view transitions --------------------------------------------- */
+/* product card image -> detail hero (named <ViewTransition share="morph">) */
+::view-transition-group(.morph) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+::view-transition-image-pair(.morph) {
+  animation-name: via-blur;
+}
+@keyframes via-blur {
+  30% {
+    filter: blur(3px) brightness(1.25);
+  }
+}
+
+/* route content fades up on arrival */
+::view-transition-old(.page-out) {
+  animation: 140ms ease-out both vt-fade reverse;
+}
+::view-transition-new(.page-in) {
+  animation: 260ms ease-in 80ms both vt-fade;
+}
+@keyframes vt-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* ---------- motion preferences ------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

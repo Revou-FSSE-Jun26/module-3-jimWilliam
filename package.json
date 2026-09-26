@@ -1,0 +1,48 @@
+{
+  "name": "revotech-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 8100",
+    "build": "next build",
+    "start": "next start -p 8100",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "assets:sync": "node scripts/sync-assets.mjs",
+    "predev": "npm run assets:sync",
+    "prebuild": "npm run assets:sync",
+    "catalog:check": "node scripts/validate-catalog.mjs",
+    "images:fetch": "node scripts/fetch-images.mjs",
+    "images:generate": "node scripts/gen-product-art.mjs",
+    "images:banners": "node scripts/gen-banners.mjs",
+    "images:sheet": "node scripts/contact-sheet.mjs",
+    "images:all": "npm run images:fetch && npm run images:generate && npm run images:banners && npm run images:variants",
+    "images:variants": "node scripts/gen-variants.mjs",
+    "images:gallery": "node scripts/import-gallery.mjs",
+    "brand:logo": "node scripts/gen-logo.mjs",
+    "catalog:overviews": "node scripts/fetch-overviews.mjs",
+    "catalog:specs": "node scripts/fetch-specs.mjs",
+    "seed:export": "node scripts/export-seed.mjs"
+  },
+  "dependencies": {
+    "imagetracerjs": "^1.2.6",
+    "next": "16.3.6",
+    "node-html-parser": "^9.0.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-hot-toast": "^2.6.1",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
