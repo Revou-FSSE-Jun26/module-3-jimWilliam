@@ -100,7 +100,8 @@ export default function HeroSlider({ slides }: { slides: HeroSlide[] }) {
                 alt=""
                 fill
                 priority={i === 0}
-                sizes="(min-width: 1280px) 1280px, 100vw"
+                // the slider is the 80rem page column, and rem grows past 1920px (app/globals.css)
+                sizes="(min-width: 1920px) calc(33.4vw + 640px), (min-width: 1280px) 1280px, 100vw"
                 className="object-cover object-[78%_50%]"
               />
               {/* readability scrim, heavier on small screens where copy overlaps the art */}

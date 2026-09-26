@@ -12,6 +12,7 @@ import { useSignOut } from "@/hooks/useSignOut";
 import { buttonVariants, cx } from "@/lib/classes";
 import { formatIDRCompact } from "@/lib/format";
 import { ROLE_LABEL } from "@/lib/roles";
+import { isAdminPath } from "@/lib/theme";
 
 interface NavItem {
   href: string;
@@ -67,7 +68,8 @@ export default function Header() {
       {/* neon hairline along the bottom edge */}
       <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-linear-to-r from-transparent via-cyan/60 to-transparent" aria-hidden />
 
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6">
+      {/* full width in the admin area, lined up with the dashboard sidebar */}
+      <div className={cx("mx-auto flex h-16 items-center gap-4 px-4 sm:px-6", isAdminPath(pathname) ? "xl:px-8" : "max-w-7xl")}>
         <Link href="/" className="group flex shrink-0 items-center" aria-label={`${settings.shop_name} home`}>
           <Brand settings={settings} />
         </Link>

@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
 import { SettingsProvider } from "@/context/SettingsContext";
+import ThemeSync from "@/components/layout/ThemeSync";
 import type { SiteSettings } from "@/lib/settings";
 
 export default function Providers({ settings, children }: { settings: SiteSettings; children: ReactNode }) {
@@ -13,6 +14,7 @@ export default function Providers({ settings, children }: { settings: SiteSettin
       <AuthProvider>
         <CartProvider>
           {children}
+          <ThemeSync />
           <Toaster
             position="bottom-right"
             gutter={10}
@@ -25,7 +27,7 @@ export default function Providers({ settings, children }: { settings: SiteSettin
                 border: "1px solid var(--color-line-bright)",
                 borderRadius: "14px",
                 padding: "12px 14px",
-                boxShadow: "0 18px 50px -20px rgba(0,0,0,0.8)",
+                boxShadow: "var(--shadow-toast)",
               },
               success: { iconTheme: { primary: "#a3e635", secondary: "#060914" } },
               error: { iconTheme: { primary: "#fb7185", secondary: "#060914" }, duration: 5000 },

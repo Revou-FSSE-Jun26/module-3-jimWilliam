@@ -5,4 +5,6 @@ export const STORAGE_KEYS = {
   cart: "revotech:cart",
   build: "revotech:build",
   promo: "revotech:promo-seen",
+  /** the dashboard theme a staff member picked: "dark" (default) or "light" */
+  theme: "revotech:theme",
 } as const;

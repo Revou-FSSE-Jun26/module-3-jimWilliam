@@ -63,14 +63,66 @@
   --font-mono: var(--font-jetbrains), ui-monospace, "Cascadia Code", monospace;
 }
 
+/* ---------- light theme (admin area only) ------------------------------------
+   Staff can switch the dashboard to light (lib/theme.ts sets data-theme on <html>).
+   Every utility reads these variables, so swapping them re-colours the whole
+   dashboard, header, dialogs and toasts. The accents are the 700 shades: dark
+   enough for text on white, and for white text on them (bg-cyan text-void). */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --color-void: #f3f6fb;
+  --color-surface: #ffffff;
+  --color-surface-2: #eef2f8;
+  --color-surface-3: #e2e8f1;
+  --color-line: #d9e0eb;
+  --color-line-bright: #b9c5d6;
+
+  --color-ink: #0f172a;
+  --color-dim: #475569;
+  --color-faint: #5f6d82;
+
+  --color-cyan: #0e7490;
+  --color-magenta: #a21caf;
+  --color-lime: #4d7c0f;
+  --color-amber: #b45309;
+  --color-rose: #be123c;
+  --color-blue: #1d4ed8;
+  --color-violet: #7e22ce;
+
+  --shadow-toast: 0 18px 40px -18px rgb(15 23 42 / 0.35);
+}
+
+/* A preview of the storefront inside the light dashboard (the logo on the Settings page): the
+   dark colours again for that one subtree. Keep in step with @theme above. */
+@utility theme-storefront {
+  color-scheme: dark;
+  --color-void: #060914;
+  --color-surface: #0d1425;
+  --color-surface-2: #131c30;
+  --color-line: #1c2740;
+  --color-ink: #e6edf7;
+  --color-dim: #9aa8bf;
+  --color-faint: #6b7a93;
+  --color-cyan: #22d3ee;
+  --color-magenta: #e879f9;
+  color: var(--color-ink);
+}
+
 /* ---------- base --------------------------------------------------------- */
 @layer base {
   :root {
     color-scheme: dark;
+    --shadow-toast: 0 18px 50px -20px rgb(0 0 0 / 0.8);
   }
 
   html {
     background-color: var(--color-void);
+    /* Large screens: 16px up to a 1920px-wide window, then growing with it - 18.7px at 2560
+       (a 4K monitor at Windows' default 150 %), 24px at 3840 (4K at 100 %). Spacing, type and
+       the max-w-7xl page column are all in rem, so the whole layout scales instead of sitting
+       in a narrow strip. Never smaller than the reader's own browser setting (100%). */
+    font-size: max(100%, calc(100vw / 240 + 0.5rem));
   }
 
   body {

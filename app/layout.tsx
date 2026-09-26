@@ -4,8 +4,10 @@ import CommandPalette from "@/components/layout/CommandPalette";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import Providers from "@/components/layout/Providers";
+import ShopOnly from "@/components/layout/ShopOnly";
 import { serverApi } from "@/lib/api.server";
 import { DEFAULT_SETTINGS } from "@/lib/settings";
+import { THEME_BOOT_SCRIPT } from "@/lib/theme";
 import PromoPopup from "@/components/PromoPopup";
 import "./globals.css";
 
@@ -53,7 +55,12 @@ export const viewport: Viewport = {
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const settings = await loadSettings();
   return (
-    <html lang="en" className={`${grotesk.variable} ${mono.variable}`}>
+    // suppressHydrationWarning: THEME_BOOT_SCRIPT may set data-theme on <html> before React hydrates
+    <html lang="en" className={`${grotesk.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head>
+        {/* a staff member's light dashboard theme, applied before the first paint (lib/theme.ts) */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
+      </head>
       <body className="relative flex min-h-dvh flex-col">
         {/* fixed decorative backdrop: drifting grid + two colour blooms */}
         <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
@@ -74,7 +81,9 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           <main id="main" className="flex-1">
             {children}
           </main>
-          <Footer settings={settings} />
+          <ShopOnly>
+            <Footer settings={settings} />
+          </ShopOnly>
           <CommandPalette />
           <PromoPopup />
         </Providers>

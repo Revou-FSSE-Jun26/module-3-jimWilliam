@@ -27,7 +27,7 @@ export default function StatsHUD({ products, orders }: { products: Product[]; or
   const byStatus = STATUSES.map((s) => ({ status: s, count: orders.filter((o) => o.order_status === s).length }));
 
   return (
-    <section aria-label="Store overview" className="grid gap-4 md:grid-cols-2 xl:grid-cols-4" data-testid="stats-hud">
+    <section aria-label="Store overview" className="grid gap-4 md:grid-cols-2 2xl:grid-cols-4" data-testid="stats-hud">
       <Tile label="Revenue" accent="var(--color-lime)" note={`${live.length} orders · excl. cancelled`}>
         <p className="font-mono text-3xl text-lime tabular" title={formatIDR(revenue)} data-testid="hud-revenue">
           {formatIDRCompact(revenue)}
