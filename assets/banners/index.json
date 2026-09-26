@@ -1,0 +1,130 @@
+[
+  {
+    "id": "new-arrivals",
+    "products": [
+      {
+        "slug": "corsair-icue-link-titan-ii-360-rx-lcd",
+        "product_id": 21
+      },
+      {
+        "slug": "corsair-dominator-titanium-rgb-32gb",
+        "product_id": 8
+      }
+    ],
+    "colors": [
+      "#22d3ee",
+      "#e879f9"
+    ],
+    "full": "new-arrivals.avif",
+    "small": "new-arrivals@1280.avif",
+    "bytes": 35486
+  },
+  {
+    "id": "rtx-50",
+    "products": [
+      {
+        "slug": "msi-geforce-rtx-5070-12g-gaming-trio-oc",
+        "product_id": 12
+      },
+      {
+        "slug": "nvidia-geforce-rtx-5060-8gb",
+        "product_id": 11
+      }
+    ],
+    "colors": [
+      "#22d3ee",
+      "#60a5fa"
+    ],
+    "full": "rtx-50.avif",
+    "small": "rtx-50@1280.avif",
+    "bytes": 35196
+  },
+  {
+    "id": "x3d-gaming",
+    "products": [
+      {
+        "slug": "amd-ryzen-7-9850x3d",
+        "product_id": 3
+      },
+      {
+        "slug": "msi-mag-b850-tomahawk-wifi",
+        "product_id": 5
+      }
+    ],
+    "colors": [
+      "#e879f9",
+      "#22d3ee"
+    ],
+    "full": "x3d-gaming.avif",
+    "small": "x3d-gaming@1280.avif",
+    "bytes": 35579
+  },
+  {
+    "id": "nvme-speed",
+    "products": [
+      {
+        "slug": "samsung-9100-pro-nvme-1tb",
+        "product_id": 9
+      },
+      {
+        "slug": "corsair-vengeance-ddr5-16gb",
+        "product_id": 7
+      }
+    ],
+    "colors": [
+      "#a3e635",
+      "#22d3ee"
+    ],
+    "full": "nvme-speed.avif",
+    "small": "nvme-speed@1280.avif",
+    "bytes": 36661
+  },
+  {
+    "id": "peripherals",
+    "products": [
+      {
+        "slug": "keychron-k8-pro",
+        "product_id": 19
+      },
+      {
+        "slug": "logitech-g502-x",
+        "product_id": 18
+      },
+      {
+        "slug": "lg-ultragear-27gs60f",
+        "product_id": 20
+      }
+    ],
+    "colors": [
+      "#c084fc",
+      "#e879f9"
+    ],
+    "full": "peripherals.avif",
+    "small": "peripherals@1280.avif",
+    "bytes": 44210
+  },
+  {
+    "id": "build-your-rig",
+    "products": [
+      {
+        "slug": "asus-prime-b860m-a-wifi",
+        "product_id": 4
+      },
+      {
+        "slug": "corsair-rm650e-650w",
+        "product_id": 14
+      },
+      {
+        "slug": "arctic-p12-argb",
+        "product_id": 16
+      }
+    ],
+    "colors": [
+      "#fbbf24",
+      "#22d3ee"
+    ],
+    "full": "build-your-rig.avif",
+    "small": "build-your-rig@1280.avif",
+    "bytes": 53273
+  }
+]

@@ -1,0 +1,84 @@
+{
+  "_meta": {
+    "note": "Manufacturer product pages for each catalog product. The fetcher reads og:image / JSON-LD / largest srcset from these pages, upgrades the URL to the highest resolution the CDN will serve, and encodes AVIF. Each product may list several candidate pages; the first that yields a usable image wins. Products that resolve to nothing get a generated neon render instead, and are reported.",
+    "keyedBy": "product slug from data/catalog.json"
+  },
+  "sources": {
+    "intel-core-ultra-5-250k-plus": [
+      "https://www.intel.com/content/www/us/en/products/sku/241067/intel-core-ultra-5-processor-245k-24m-cache-up-to-5-20-ghz/specifications.html",
+      "https://www.intel.com/content/www/us/en/newsroom/news/client-computing/intel-announces-new-intel-core-ultra-200s-plus-series-desktop-processors.html",
+      "https://www.intel.com/content/www/us/en/products/details/processors/core-ultra.html"
+    ],
+    "intel-core-ultra-7-270k-plus": [
+      "https://www.intel.com/content/www/us/en/products/sku/241063/intel-core-ultra-7-processor-265k-30m-cache-up-to-5-50-ghz/specifications.html",
+      "https://www.intel.com/content/www/us/en/newsroom/news/client-computing/intel-announces-new-intel-core-ultra-200s-plus-series-desktop-processors.html"
+    ],
+    "amd-ryzen-7-9850x3d": [
+      "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9850x3d.html",
+      "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9800x3d.html"
+    ],
+    "asus-prime-b860m-a-wifi": [
+      "https://www.asus.com/motherboards-components/motherboards/prime/prime-b860m-a-wifi/",
+      "https://www.asus.com/motherboards-components/motherboards/prime/prime-b860m-a-wifi-csm/"
+    ],
+    "msi-mag-b850-tomahawk-wifi": [
+      "https://www.msi.com/Motherboard/MAG-B850-TOMAHAWK-WIFI",
+      "https://www.msi.com/Motherboard/MAG-B850-TOMAHAWK-MAX-WIFI"
+    ],
+    "gigabyte-h810m-h": [
+      "https://www.gigabyte.com/Motherboard/H810M-H-rev-10",
+      "https://www.gigabyte.com/us/Motherboard/H810M-H/sp",
+      "https://www.gigabyte.com/Motherboard/H810M-H-GEN5"
+    ],
+    "corsair-vengeance-ddr5-16gb": [
+      "https://www.corsair.com/us/en/p/memory/cmk32gx5m2b5600c36/vengeance-ddr5-ram-32gb-2x16gb-5600mhz-cl36-intel-xmp-icue-compatible-computer-memory-black-cmk32gx5m2b5600c36",
+      "https://www.corsair.com/us/en/c/memory"
+    ],
+    "samsung-9100-pro-nvme-1tb": [
+      "https://www.samsung.com/us/memory-storage/nvme-ssd/9100-pro-nvme-ssd-sku-mz-vap1t0b-am/"
+    ],
+    "seagate-barracuda-hdd-2tb": [
+      "https://www.seagate.com/products/hard-drives/barracuda-hard-drive/",
+      "https://www.seagate.com/as/en/products/hard-drives/barracuda-hard-drive/",
+      "https://www.seagate.com/products/hard-drives/"
+    ],
+    "nvidia-geforce-rtx-5060-8gb": [
+      "https://www.msi.com/Graphics-Card/GeForce-RTX-5060-VENTUS-2X-OC",
+      "https://www.asus.com/motherboards-components/graphics-cards/dual/dual-rtx5060-o8g/",
+      "https://www.gigabyte.com/Graphics-Card/GV-N5060WF2OC-8GD",
+      "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5060-family/"
+    ],
+    "amd-radeon-rx-9060-xt-8gb": [
+      "https://www.asus.com/motherboards-components/graphics-cards/dual/dual-rx9060xt-o8g/",
+      "https://www.msi.com/Graphics-Card/Radeon-RX-9060-XT-GAMING-OC-8G",
+      "https://www.gigabyte.com/Graphics-Card/GV-R9060XTGAMING-OC-8GD",
+      "https://www.amd.com/en/products/graphics/desktops/radeon/9000-series/amd-radeon-rx-9060-xt.html"
+    ],
+    "corsair-rm650e-650w": [
+      "https://www.corsair.com/us/en/p/psu/cp-9020302-na/rme-series-rm650e-fully-modular-low-noise-atx-power-supply-cp-9020302-na"
+    ],
+    "deepcool-ak400": [
+      "https://www.deepcool.com/products/Cooling/cpuaircoolers/AK400-Performance-CPU-Cooler-1700-AM5/2021/15222.shtml",
+      "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK400-Performance-CPU-Cooler-1851-1700-AM5/2024/15222.shtml"
+    ],
+    "arctic-p12-argb": [
+      "https://www.arctic.de/en/P12-PWM-PST-A-RGB",
+      "https://www.arctic.de/us/P12-PWM-PST-A-RGB/ACFAN00258A"
+    ],
+    "thermal-grizzly-kryonaut-1g": [
+      "https://shop.thermal-grizzly.com/en/Kryonaut",
+      "https://www.thermal-grizzly.com/en/products/16-kryonaut-en"
+    ],
+    "logitech-g502-x": [
+      "https://www.logitechg.com/en-us/shop/p/g502-x-wired-lightforce"
+    ],
+    "keychron-k8-pro": [
+      "https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard"
+    ],
+    "lg-ultragear-27gs60f": [
+      "https://www.lg.com/uk/monitors/gaming/27gs60f-b/",
+      "https://www.lg.com/ca_en/monitors/gaming/27gs60f-b/",
+      "https://www.lg.com/my/monitors/ultragear-gaming/27gs60f-b/"
+    ]
+  }
+}

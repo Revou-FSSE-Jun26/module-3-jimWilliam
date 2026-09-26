@@ -1,0 +1,71 @@
+{
+  "corsair-icue-link-titan-ii-360-rx-lcd": {
+    "folder": "assets/products/iCUE_LINK_TITAN_II_360_RX_LCD_Black",
+    "pageUrl": "https://www.corsair.com/ww/en/p/cpu-coolers/cw-9061045-ww/icue-link-titan-ii-360-rx-lcd-aio-liquid-cpu-cooler-cw-9061045-ww",
+    "files": [
+      "iCUE_LINK_TITAN_II_360_RX_LCD_Black_Artboard01_AA.avif",
+      "iCUE_LINK_TITAN_II_360_RX_LCD_Black_Artboard09_AA.avif",
+      "iCUE_LINK_TITAN_II_360_RX_LCD_Black_Artboard08_AA.avif",
+      "iCUE_LINK_TITAN_II_360_RX_LCD_Black_Artboard10_AA.avif",
+      "iCUE_LINK_TITAN_II_360_RX_LCD_Black_Artboard02_AA.avif",
+      "iCUE_LINK_TITAN_II_360_RX_LCD_Black_Artboard03_AA.avif",
+      "iCUE_LINK_TITAN_II_360_RX_LCD_Black_Artboard04_AA.avif",
+      "iCUE_LINK_TITAN_II_360_RX_LCD_Black_Artboard05_AA.avif",
+      "iCUE_LINK_TITAN_II_360_RX_LCD_Black_Artboard06_AA.avif",
+      "iCUE_LINK_TITAN_II_360_RX_LCD_Black_Artboard07_AA.avif"
+    ]
+  },
+  "sandisk-optimus-gx-pro-850x-1tb": {
+    "folder": "assets/products/optimus-gx-pro-850x-heatsink",
+    "pageUrl": "https://www.sandisk.com/in-id/products/ssd/internal-ssd/sandisk-optimus-gx-pro-850x-internal-nvme-ssd?sku=SDSP81100TAH-000E0",
+    "files": [
+      "optimus-gx-pro-850x-heatsink-left.png.wdthumb.1280.1280.webp",
+      "optimus-gx-pro-850x-heatsink-front.png.wdthumb.1280.1280.webp",
+      "optimus-gx-pro-850x-heatsink-feature1.jpg.wdthumb.1280.1280.webp",
+      "optimus-gx-pro-850x-heatsink-feature2.jpg.wdthumb.1280.1280.webp",
+      "optimus-gx-pro-850x-heatsink-feature3.jpg.wdthumb.1280.1280.webp",
+      "optimus-gx-pro-850x-heatsink-feature4.jpg.wdthumb.1280.1280.webp",
+      "optimus-gx-pro-850x-heatsink-feature5.jpg.wdthumb.1280.1280.webp",
+      "optimus-gx-pro-850x-heatsink-feature6.jpg.wdthumb.1280.1280.webp",
+      "optimus-gx-pro-850x-heatsink-feature7.jpg.wdthumb.1280.1280.webp",
+      "optimus-gx-pro-850x-heatsink-feature8.jpg.wdthumb.1280.1280.webp"
+    ]
+  },
+  "wd-black-sn850x-1tb": {
+    "folder": "assets/products/wd-black-sn850x-nvme-ssd-heatsink",
+    "pageUrl": "https://www.sandisk.com/in-id/products/ssd/internal-ssd/wd-black-sn850x-nvme-ssd?sku=WDS100T2XHE-00BCA0",
+    "files": [
+      "wd-black-sn850x-nvme-ssd-heatsink-angled.png.wdthumb.1280.1280.webp",
+      "wd-black-sn850x-nvme-ssd-heatsink-front.png.wdthumb.1280.1280.webp",
+      "wd-black-sn850x-nvme-ssd-heatsink-feature1.jpg.wdthumb.1280.1280.webp",
+      "wd-black-sn850x-nvme-ssd-family-feature2.jpg.wdthumb.1280.1280.webp"
+    ]
+  },
+  "corsair-dominator-titanium-rgb-32gb": {
+    "folder": "assets/products/DOMINATOR® TITANIUM RGB 32GB",
+    "pageUrl": "https://www.corsair.com/ww/en/p/memory/cmp32gx5m2x7600c36/dominator-titanium-rgb-2x16gb-ddr5-dram-7600mt-s-cl36-intel-xmp-memory-kit-cmp32gx5m2x7600c36",
+    "files": [
+      "DOMINATOR_TITANIUM_RGB_BLACK_RENDER_07.avif",
+      "DOMINATOR_TITANIUM_RGB_BLACK_RENDER_02.avif",
+      "DOMINATOR_TITANIUM_RGB_BLACK_RENDER_09.avif",
+      "DOMINATOR_TITANIUM_RGB_DDR5_BLACK_2UP_Artboard01_AA.avif",
+      "DOMINATOR_TITANIUM_RGB_DDR5_BLACK_2UP_Artboard07_AA.avif",
+      "DOMINATOR_TITANIUM_RGB_BLACK_RENDER_03.avif",
+      "DOMINATOR_TITANIUM_RGB_DDR5_BLACK_2UP_Artboard02_AA.avif",
+      "DOMINATOR_TITANIUM_RGB_DDR5_BLACK_2UP_Artboard03_AA.avif",
+      "DOMINATOR_TITANIUM_RGB_DDR5_BLACK_2UP_Artboard04_AA.avif",
+      "DOMINATOR_TITANIUM_RGB_DDR5_BLACK_2UP_Artboard05_AA.avif"
+    ]
+  },
+  "msi-geforce-rtx-5070-12g-gaming-trio-oc": {
+    "folder": "assets/products/MSI GeForce RTX™ 5070 12G GAMING TRIO OC",
+    "pageUrl": "https://id.msi.com/Graphics-Card/GeForce-RTX-5070-12G-GAMING-TRIO-OC",
+    "files": [
+      "product_1738649526b6cc3729327aafde176d7797dc781423.webp",
+      "product_17386495298a17763c5efde97505ae2df6aa17fd14.webp",
+      "product_173864952939b260ff897d063fc8d4670969f9c945.webp",
+      "product_17386495313aa33f9f1713c768cf92aaa70f45a2e5.webp",
+      "product_1738649526e86a50585ee31273e268bbb486c9a59c.webp"
+    ]
+  }
+}

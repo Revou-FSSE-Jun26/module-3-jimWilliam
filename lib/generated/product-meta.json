@@ -1,0 +1,396 @@
+{
+  "products": {
+    "1": {
+      "slug": "intel-core-ultra-5-250k-plus",
+      "kind": "cpu",
+      "brand": "Intel",
+      "socket": "LGA1851",
+      "watt": 125,
+      "image": "/products/intel-core-ultra-5-250k-plus.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAACoAAgAAAAABvgABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAARm1kYXQSAAoIOBE/9pAQ0GkyHBrCYuTgABQAAIsycBNEo8yyL78Zuydwjb5gRbASAAoFGBE/9hUyCRmAAAEACQwe4Q==",
+      "origin": "manufacturer"
+    },
+    "2": {
+      "slug": "intel-core-ultra-7-270k-plus",
+      "kind": "cpu",
+      "brand": "Intel",
+      "socket": "LGA1851",
+      "watt": 125,
+      "image": "/products/intel-core-ultra-7-270k-plus.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADcAAgAAAAABywABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAU21kYXQSAAoIOBE/9pAQ0GkyKRrCYuTgQQBBQCIAopZa8DUD642OzFhgY3g3JR2KZRCOeJ2Sw93mnY/QEgAKBRgRP/YVMgkZgAABAAkMHuE=",
+      "origin": "generated"
+    },
+    "3": {
+      "slug": "amd-ryzen-7-9850x3d",
+      "kind": "cpu",
+      "brand": "AMD",
+      "socket": "AM5",
+      "watt": 120,
+      "image": "/products/amd-ryzen-7-9850x3d.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAAEQAAgAAAAAB2AABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAYG1kYXQSAAoIOBE/9pAQ0GkyNhrCYuTiCBBBQgSAtCvPQCccgczh63j0LIWlTorqnRCz1lOkkg/BBBSxIviMH9Rl9R69Zti++BIACgUYET/2FTIJGYAAAQAJDB7h",
+      "origin": "manufacturer"
+    },
+    "4": {
+      "slug": "asus-prime-b860m-a-wifi",
+      "kind": "motherboard",
+      "brand": "ASUS",
+      "socket": "LGA1851",
+      "watt": 0,
+      "image": "/products/asus-prime-b860m-a-wifi.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAAEAAAgAAAAAB1AABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAXG1kYXQSAAoIOBE/9pAQ0GkyMhrCYuTgABQQKIst+v/n/KaftOed52RlXA8EwUzGrmJoSIKD7TwLd4Zv5irZrq5WOROYEgAKBRgRP/YVMgkZgAABAAkMHuE=",
+      "origin": "manufacturer"
+    },
+    "5": {
+      "slug": "msi-mag-b850-tomahawk-wifi",
+      "kind": "motherboard",
+      "brand": "MSI",
+      "socket": "AM5",
+      "watt": 0,
+      "image": "/products/msi-mag-b850-tomahawk-wifi.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADIAAgAAAAABxgABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAATm1kYXQSAAoIOBE/9pAQ0GkyJBrCYuThBBBBQCCAtCvAhKcTn3crnBCMs5aqUONXVakk0JlqgBIACgUYET/2FTIJGYAAAQAJDB7h",
+      "origin": "manufacturer"
+    },
+    "6": {
+      "slug": "gigabyte-h810m-h",
+      "kind": "motherboard",
+      "brand": "Gigabyte",
+      "socket": "LGA1851",
+      "watt": 0,
+      "image": "/products/gigabyte-h810m-h.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAAD4AAgAAAAAB0gABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAWm1kYXQSAAoIOBE/9pAQ0GkyMBrCYuThBBCBQK4AtCvBBZUSrZQLysmggBJZDKeHbAuRuRvmzf/wsl6pGIN1MqZs6hIACgUYET/2FTIJGYAAAQAJDB7h",
+      "origin": "manufacturer"
+    },
+    "7": {
+      "slug": "corsair-vengeance-ddr5-16gb",
+      "kind": "ram",
+      "brand": "Corsair",
+      "socket": null,
+      "watt": 10,
+      "image": "/products/corsair-vengeance-ddr5-16gb.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADsAAgAAAAABzwABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAV21kYXQSAAoIOBE/9pAQ0GkyLRrCYuTiCBABQKBAtCu97k9Vam6BLsqpWNJ5GQfJuogydaQ55n1MCW99/sr8yxIACgUYET/2FTIJGYAAAQAJDB7h",
+      "origin": "manufacturer"
+    },
+    "8": {
+      "slug": "corsair-dominator-titanium-rgb-32gb",
+      "kind": "ram",
+      "brand": "Corsair",
+      "socket": null,
+      "watt": 10,
+      "image": "/products/corsair-dominator-titanium-rgb-32gb.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADsAAgAAAAABzwABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAV21kYXQSAAoIOBE/9pAQ0GkyLRrCYuTiCBBBQSTAtCvAFoS1fvPWY/SEqILG2U7OdPRiznte6fzmIZ1IJU5fgBIACgUYET/2FTIJGYAAAQAJDB7h",
+      "origin": "manufacturer"
+    },
+    "9": {
+      "slug": "samsung-9100-pro-nvme-1tb",
+      "kind": "ssd",
+      "brand": "Samsung",
+      "socket": null,
+      "watt": 10,
+      "image": "/products/samsung-9100-pro-nvme-1tb.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADYAAgAAAAABygABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAUm1kYXQSAAoIOBE/9pAQ0GkyKBrCYuThBBBBQCCAopYr0sAT+FBWPL5FM9bDmVWc37t7OAYIff1oVMgSAAoFGBE/9hUyCRmAAAEACQwe4Q==",
+      "origin": "manufacturer"
+    },
+    "10": {
+      "slug": "seagate-barracuda-hdd-2tb",
+      "kind": "hdd",
+      "brand": "Seagate",
+      "socket": null,
+      "watt": 10,
+      "image": "/products/seagate-barracuda-hdd-2tb.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADAAAgAAAAABxAABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAATG1kYXQSAAoIOBE/9pAQ0GkyIhrCYuTgABQAKIsyBWBaX4jM18rFIPMNUz20bhWrmVsKj4ASAAoFGBE/9hUyCRmAAAEACQwe4Q==",
+      "origin": "generated"
+    },
+    "11": {
+      "slug": "nvidia-geforce-rtx-5060-8gb",
+      "kind": "gpu",
+      "brand": "NVIDIA",
+      "socket": null,
+      "watt": 145,
+      "image": "/products/nvidia-geforce-rtx-5060-8gb.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADUAAgAAAAAByQABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAUW1kYXQSAAoIOBE/9pAQ0GkyJxrCYuThBBBBQQQAtCt5glCbV451Yohp2HoGQ4SkW0gFVSQJSEWRgBIACgUYET/2FTIJGYAAAQAJDB7h",
+      "origin": "manufacturer"
+    },
+    "12": {
+      "slug": "msi-geforce-rtx-5070-12g-gaming-trio-oc",
+      "kind": "gpu",
+      "brand": "MSI",
+      "socket": null,
+      "watt": 250,
+      "image": "/products/msi-geforce-rtx-5070-12g-gaming-trio-oc.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAAC4AAgAAAAABwgABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAASm1kYXQSAAoIOBE/9pAQ0GkyIBrCYuTgABQ4CIsy6Z/3ThUvGYvY19HC0jWc9CDazz9gEgAKBRgRP/YVMgkZgAABAAkMHuE=",
+      "origin": "manufacturer"
+    },
+    "13": {
+      "slug": "amd-radeon-rx-9060-xt-8gb",
+      "kind": "gpu",
+      "brand": "AMD",
+      "socket": null,
+      "watt": 160,
+      "image": "/products/amd-radeon-rx-9060-xt-8gb.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADQAAgAAAAAByAABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAUG1kYXQSAAoIOBE/9pAQ0GkyJhrCYuThBBBBQCSAopYb0y4Z23bRLHlw25O1A/02NJUwdl6h0jZqEgAKBRgRP/YVMgkZgAABAAkMHuE=",
+      "origin": "manufacturer"
+    },
+    "14": {
+      "slug": "corsair-rm650e-650w",
+      "kind": "psu",
+      "brand": "Corsair",
+      "socket": null,
+      "watt": -650,
+      "image": "/products/corsair-rm650e-650w.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADEAAgAAAAABxQABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAATW1kYXQSAAoIOBE/9pAQ0GkyIxrCYuTgABQKQIsybi+T52jaGma0B121xIa24L5V4JO1cuCAEgAKBRgRP/YVMgkZgAABAAkMHuE=",
+      "origin": "manufacturer"
+    },
+    "15": {
+      "slug": "deepcool-ak400",
+      "kind": "cooler",
+      "brand": "Deepcool",
+      "socket": null,
+      "watt": 5,
+      "image": "/products/deepcool-ak400.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAAEEAAgAAAAAB1QABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAXW1kYXQSAAoIOBE/9pAQ0GkyMxrCYuTiCBBBQICAtCuHv+O1DKHeR6QDfwuEAtYQC0dzfvATR1r0YZsILv4eqHFltjcvgBIACgUYET/2FTIJGYAAAQAJDB7h",
+      "origin": "manufacturer"
+    },
+    "16": {
+      "slug": "arctic-p12-argb",
+      "kind": "fan",
+      "brand": "Arctic",
+      "socket": null,
+      "watt": 3,
+      "image": "/products/arctic-p12-argb.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADoAAgAAAAABzgABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAVm1kYXQSAAoIOBE/9pAQ0GkyLBrCYuTgABQAAIsyEimLIxNMPXYPTRUr+E7ZlHOJWhQLJYrO2hqUb0tYFA9MEgAKBRgRP/YVMgkZgAABAAkMHuE=",
+      "origin": "manufacturer"
+    },
+    "17": {
+      "slug": "thermal-grizzly-kryonaut-1g",
+      "kind": "paste",
+      "brand": "Thermal Grizzly",
+      "socket": null,
+      "watt": 0,
+      "image": "/products/thermal-grizzly-kryonaut-1g.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAAC8AAgAAAAABwwABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAS21kYXQSAAoIOBE/9pAQ0GkyIRrCYuTgABQAQIsylwbeSRILj+4N9kfiE9ABZgTzC1ksHhIACgUYET/2FTIJGYAAAQAJDB7h",
+      "origin": "generated"
+    },
+    "18": {
+      "slug": "logitech-g502-x",
+      "kind": "mouse",
+      "brand": "Logitech",
+      "socket": null,
+      "watt": 2,
+      "image": "/products/logitech-g502-x.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAAEEAAgAAAAAB1QABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAXW1kYXQSAAoIOBE/9pAQ0GkyMxrCYuThBBABQKKAopW/neUtg7OHWAIYQTfvoRuxyTedjo8lWs/uddJ/Yp2jnCarVKGtrRIACgUYET/2FTIJGYAAAQAJDB7h",
+      "origin": "manufacturer"
+    },
+    "19": {
+      "slug": "keychron-k8-pro",
+      "kind": "keyboard",
+      "brand": "Keychron",
+      "socket": null,
+      "watt": 3,
+      "image": "/products/keychron-k8-pro.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADYAAgAAAAABygABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAUm1kYXQSAAoIOBE/9pAQ0GkyKBrCYuTgABQIIIsyWc+hfRwqdAP3PnHJk3eQEGu1f31uZisfbBpVFEASAAoFGBE/9hUyCRmAAAEACQwe4Q==",
+      "origin": "manufacturer"
+    },
+    "20": {
+      "slug": "lg-ultragear-27gs60f",
+      "kind": "monitor",
+      "brand": "LG",
+      "socket": null,
+      "watt": 30,
+      "image": "/products/lg-ultragear-27gs60f.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAAEEAAgAAAAAB1QABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAXW1kYXQSAAoIOBE/9pAQ0GkyMxrCYuThBBBBQKKAtCvB99U7r3nAWjBhnOM1A16uuQoNphPVARNwF4GcF/FkpSq0nh2HPhIACgUYET/2FTIJGYAAAQAJDB7h",
+      "origin": "manufacturer"
+    },
+    "21": {
+      "slug": "corsair-icue-link-titan-ii-360-rx-lcd",
+      "kind": "cooler",
+      "brand": "Corsair",
+      "socket": null,
+      "watt": 15,
+      "image": "/products/corsair-icue-link-titan-ii-360-rx-lcd.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAAEQAAgAAAAAB2AABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAYG1kYXQSAAoIOBE/9pAQ0GkyNhrCYuTiCBBBQK4AtCvAlIB/89DotCsMMz1Rgf+rFRDPPYqcswpvWrmDH8BJ4KRlrjIb0+2NgBIACgUYET/2FTIJGYAAAQAJDB7h",
+      "origin": "manufacturer"
+    },
+    "22": {
+      "slug": "sandisk-optimus-gx-pro-850x-1tb",
+      "kind": "ssd",
+      "brand": "SanDisk",
+      "socket": null,
+      "watt": 7,
+      "image": "/products/sandisk-optimus-gx-pro-850x-1tb.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAAC8AAgAAAAABwwABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAS21kYXQSAAoIOBE/9pAQ0GkyIRrCYuTgABQKIIsycIpdL9LESRLP/NEsl2wZd/wlMkdDEBIACgUYET/2FTIJGYAAAQAJDB7h",
+      "origin": "manufacturer"
+    },
+    "23": {
+      "slug": "wd-black-sn850x-1tb",
+      "kind": "ssd",
+      "brand": "WD_BLACK",
+      "socket": null,
+      "watt": 7,
+      "image": "/products/wd-black-sn850x-1tb.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADIAAgAAAAABxgABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAATm1kYXQSAAoIOBE/9pAQ0GkyJBrCYuThBBABQgQAtCvAk85pF4GCIyQ9NNtrghfr16MdL/HlgBIACgUYET/2FTIJGYAAAQAJDB7h",
+      "origin": "manufacturer"
+    }
+  },
+  "categories": {
+    "1": {
+      "image": "/products/category-1.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADcAAgAAAAABywABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAU21kYXQSAAoIOBE/9pAQ0GkyKRrCYuThBBBBQCIAopZiKoO39cbHZiwwMbwbko87k9BlTVDjlIZxGUCAEgAKBRgRP/YVMgkZgAABAAkMHuE=",
+      "accent": "#22d3ee"
+    },
+    "2": {
+      "image": "/products/category-2.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAAC8AAgAAAAABwwABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAS21kYXQSAAoIOBE/9pAQ0GkyIRrCYuTgABQAAIsyBkWO0riLpkHVGkbmIAXoABGLMg6ZgBIACgUYET/2FTIJGYAAAQAJDB7h",
+      "accent": "#e879f9"
+    },
+    "3": {
+      "image": "/products/category-3.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADQAAgAAAAAByAABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAUG1kYXQSAAoIOBE/9pAQ0GkyJhrCYuThBBABQCIAopZ1eTJyjdw3YXtzM9jh1USgesgJmknj+/iiEgAKBRgRP/YVMgkZgAABAAkMHuE=",
+      "accent": "#a3e635"
+    },
+    "4": {
+      "image": "/products/category-4.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAAC4AAgAAAAABwgABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAASm1kYXQSAAoIOBE/9pAQ0GkyIBrCYuTgABQKKIsydz5s2ZgvQ8dG7Gg6y1VPd55rFBtNEgAKBRgRP/YVMgkZgAABAAkMHuE=",
+      "accent": "#60a5fa"
+    },
+    "5": {
+      "image": "/products/category-5.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADAAAgAAAAABxAABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAATG1kYXQSAAoIOBE/9pAQ0GkyIhrCYuTgABQCKIsyBWG5AIigH7tSOu27XvXfk5ay3oGq1IcSAAoFGBE/9hUyCRmAAAEACQwe4Q==",
+      "accent": "#fbbf24"
+    },
+    "6": {
+      "image": "/products/category-6.avif",
+      "blurDataURL": "data:image/avif;base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjFhdmlmbWlhZgAAAXBtZXRhAAAAAAAAACFoZGxyAAAAAAAAAABwaWN0AAAAAAAAAAAAAAAAAAAAADRpbG9jAAAAAERAAAIAAQAAAAABlAABAAAAAAAAADUAAgAAAAAByQABAAAAAAAAABQAAAA4aWluZgAAAAAAAgAAABVpbmZlAgAAAAABAABhdjAxAAAAABVpbmZlAgAAAAACAABhdjAxAAAAAA5waXRtAAAAAAABAAAAr2lwcnAAAACKaXBjbwAAAAxhdjFDgSACAAAAABRpc3BlAAAAAAAAACAAAAAgAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQAcAAAAAA5waXhpAAAAAAEIAAAAOGF1eEMAAAAAdXJuOm1wZWc6bXBlZ0I6Y2ljcDpzeXN0ZW1zOmF1eGlsaWFyeTphbHBoYQAAAAAdaXBtYQAAAAAAAAACAAEDgQIDAAIEhAIFhgAAABppcmVmAAAAAAAAAA5hdXhsAAIAAQABAAAAUW1kYXQSAAoIOBE/9pAQ0GkyJxrCYuThBAABQKAAopZZheeCJy3vvjsMV6NBpeD7JFcDlrHIjGnb/RIACgUYET/2FTIJGYAAAQAJDB7h",
+      "accent": "#c084fc"
+    }
+  },
+  "banners": [
+    {
+      "id": "new-arrivals",
+      "products": [
+        {
+          "slug": "corsair-icue-link-titan-ii-360-rx-lcd",
+          "product_id": 21
+        },
+        {
+          "slug": "corsair-dominator-titanium-rgb-32gb",
+          "product_id": 8
+        }
+      ],
+      "colors": [
+        "#22d3ee",
+        "#e879f9"
+      ],
+      "full": "new-arrivals.avif",
+      "small": "new-arrivals@1280.avif",
+      "bytes": 35486
+    },
+    {
+      "id": "rtx-50",
+      "products": [
+        {
+          "slug": "msi-geforce-rtx-5070-12g-gaming-trio-oc",
+          "product_id": 12
+        },
+        {
+          "slug": "nvidia-geforce-rtx-5060-8gb",
+          "product_id": 11
+        }
+      ],
+      "colors": [
+        "#22d3ee",
+        "#60a5fa"
+      ],
+      "full": "rtx-50.avif",
+      "small": "rtx-50@1280.avif",
+      "bytes": 35196
+    },
+    {
+      "id": "x3d-gaming",
+      "products": [
+        {
+          "slug": "amd-ryzen-7-9850x3d",
+          "product_id": 3
+        },
+        {
+          "slug": "msi-mag-b850-tomahawk-wifi",
+          "product_id": 5
+        }
+      ],
+      "colors": [
+        "#e879f9",
+        "#22d3ee"
+      ],
+      "full": "x3d-gaming.avif",
+      "small": "x3d-gaming@1280.avif",
+      "bytes": 35579
+    },
+    {
+      "id": "nvme-speed",
+      "products": [
+        {
+          "slug": "samsung-9100-pro-nvme-1tb",
+          "product_id": 9
+        },
+        {
+          "slug": "corsair-vengeance-ddr5-16gb",
+          "product_id": 7
+        }
+      ],
+      "colors": [
+        "#a3e635",
+        "#22d3ee"
+      ],
+      "full": "nvme-speed.avif",
+      "small": "nvme-speed@1280.avif",
+      "bytes": 36661
+    },
+    {
+      "id": "peripherals",
+      "products": [
+        {
+          "slug": "keychron-k8-pro",
+          "product_id": 19
+        },
+        {
+          "slug": "logitech-g502-x",
+          "product_id": 18
+        },
+        {
+          "slug": "lg-ultragear-27gs60f",
+          "product_id": 20
+        }
+      ],
+      "colors": [
+        "#c084fc",
+        "#e879f9"
+      ],
+      "full": "peripherals.avif",
+      "small": "peripherals@1280.avif",
+      "bytes": 44210
+    },
+    {
+      "id": "build-your-rig",
+      "products": [
+        {
+          "slug": "asus-prime-b860m-a-wifi",
+          "product_id": 4
+        },
+        {
+          "slug": "corsair-rm650e-650w",
+          "product_id": 14
+        },
+        {
+          "slug": "arctic-p12-argb",
+          "product_id": 16
+        }
+      ],
+      "colors": [
+        "#fbbf24",
+        "#22d3ee"
+      ],
+      "full": "build-your-rig.avif",
+      "small": "build-your-rig@1280.avif",
+      "bytes": 53273
+    }
+  ]
+}
