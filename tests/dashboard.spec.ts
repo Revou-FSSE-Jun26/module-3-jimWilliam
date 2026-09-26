@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import type { Page } from "@playwright/test";
 import { expect, test } from "./fixtures";
 import { ADMIN_STATE } from "./global-setup";
@@ -86,5 +87,27 @@ test.describe("admin dashboard", () => {
     await row.getByTestId("confirm-delete-yes").click();
     await expect(row.getByTestId("row-error")).toContainText("active orders");
     await expect(row).toBeVisible();
+  });
+
+  test("a product that is only in past orders is withdrawn from sale, not deleted", async ({ page, request, baseURL }) => {
+    test.skip(!/localhost|127\.0\.0\.1/.test(baseURL ?? ""), "writes and reads back shared data");
+    const name = `PW withdraw ${Date.now()}`;
+    const { product } = await (await request.post("/api/products", { data: { product_name: name, category_id: 5, price: 1000, stock_quantity: 3 } })).json();
+    const user = JSON.parse(readFileSync("tests/.auth/user.json", "utf8"));
+    const { order } = await (
+      await request.post("/api/orders", { data: { user_id: user.id, shipping_address: "Jl. Playwright No. 3, Jakarta", items: [{ product_id: product.product_id, quantity: 1 }] } })
+    ).json();
+    await request.put(`/api/orders/${order.order_id}`, { data: { order_status: "cancelled" } });
+
+    await page.goto("/dashboard");
+    const row = page.getByTestId("product-row").filter({ hasText: name });
+    await row.getByTestId("delete-product").click();
+    await row.getByTestId("confirm-delete-yes").click();
+    await expect(page.getByText(`${name} is in past orders, so it was withdrawn from sale instead`)).toBeVisible();
+    await expect(row).toBeVisible();
+
+    const after = await (await request.get(`/api/products/${product.product_id}`)).json();
+    expect(after.is_active).toBe(false);
+    expect((await (await request.get(`/api/orders/${order.order_id}`)).json()).items[0].product_id).toBe(product.product_id);
   });
 });

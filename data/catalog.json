@@ -3223,55 +3223,55 @@
       "id": 1,
       "username": "Andi Pratama",
       "email": "andi.pratama@example.com",
-      "password": "password123",
       "phone_number": "+62-812-1111-0001",
       "address": "Jl. Sudirman No. 1, Jakarta Pusat",
-      "role": "superadmin"
+      "role": "superadmin",
+      "password_hash": "pbkdf2:sha256:600000$859bc81fea01cb42$44bd2c69705b1b14712f70580e4551946798e5d1afb0fd6961ff0bbd2ed992b9"
     },
     {
       "id": 2,
       "username": "Siti Rahayu",
       "email": "siti.rahayu@example.com",
-      "password": "password123",
       "phone_number": "+62-813-2222-0002",
       "address": "Jl. Asia Afrika No. 22, Bandung",
-      "role": "customer"
+      "role": "customer",
+      "password_hash": "pbkdf2:sha256:600000$1e5ed886336c8a44$1826a7d350b41a4a9b8f406f11322ed755480360fa21e423c66f6d215daaa024"
     },
     {
       "id": 3,
       "username": "Budi Santoso",
       "email": "budi.santoso@example.com",
-      "password": "password123",
       "phone_number": "+62-856-3333-0003",
       "address": "Jl. Pemuda No. 33, Surabaya",
-      "role": "admin"
+      "role": "admin",
+      "password_hash": "pbkdf2:sha256:600000$4dff2d8b56b6cc37$f717a8f4530ce202a59d23b7f0fae684bf8812f158f9510c5a341edd66867215"
     },
     {
       "id": 4,
       "username": "Dewi Lestari",
       "email": "dewi.lestari@example.com",
-      "password": "password123",
       "phone_number": "+62-877-4444-0004",
       "address": "Jl. Malioboro No. 44, Yogyakarta",
-      "role": "customer"
+      "role": "customer",
+      "password_hash": "pbkdf2:sha256:600000$a7c53e78c422abc4$cd03f2a9a0446ddc8f7a7f59fa7fd7804fab8aff8b19a9c5704834d323f5a95d"
     },
     {
       "id": 5,
       "username": "Rizky Ramadhan",
       "email": "rizky.ramadhan@example.com",
-      "password": "password123",
       "phone_number": "+62-819-5555-0005",
       "address": "Jl. Gatot Subroto No. 55, Medan",
-      "role": "customer"
+      "role": "customer",
+      "password_hash": "pbkdf2:sha256:600000$1f682d34feed14a5$7e574bad87d26024634c0ce57fc9731f9ff39e156f6ee49910d392c236aff3df"
     },
     {
       "id": 6,
       "username": "Maya Kusuma",
       "email": "maya.kusuma@example.com",
-      "password": "password123",
       "phone_number": null,
       "address": "Jl. Diponegoro No. 66, Semarang",
-      "role": "customer"
+      "role": "customer",
+      "password_hash": "pbkdf2:sha256:600000$12b7bd9086bc49dc$aeaeecce5f2251ca2f9c9cd4e30dcc2ebb17c574ff0fb5b7e06cdfe95125bcb2"
     }
   ],
   "orders": [

@@ -7,5 +7,5 @@ export async function POST(req: NextRequest) {
   const blocked = await gate();
   if (blocked) return blocked;
   const body = await readBody(req);
-  return body instanceof Response ? body : respond(login(body));
+  return body instanceof Response ? body : respond(await login(body));
 }

@@ -8,9 +8,9 @@ import { listUsers, registerUser } from "@/lib/server/store";
 export async function GET(req: NextRequest) {
   const blocked = await gate();
   if (blocked) return blocked;
-  const denied = requirePermission(req, "users:manage");
+  const denied = await requirePermission(req, "users:manage");
   if (denied) return denied;
-  return respond(listUsers());
+  return respond(await listUsers());
 }
 
 // POST /api/users -> 201 { message, user } | 400 { error, fields } | 409 email already registered
@@ -19,5 +19,5 @@ export async function POST(req: NextRequest) {
   const blocked = await gate();
   if (blocked) return blocked;
   const body = await readBody(req);
-  return body instanceof Response ? body : respond(registerUser(body));
+  return body instanceof Response ? body : respond(await registerUser(body));
 }

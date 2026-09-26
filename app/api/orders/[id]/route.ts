@@ -8,7 +8,7 @@ export async function GET(_req: NextRequest, ctx: RouteContext<"/api/orders/[id]
   const blocked = await gate();
   if (blocked) return blocked;
   const { id } = await ctx.params;
-  return respond(getOrder(toId(id)));
+  return respond(await getOrder(toId(id)));
 }
 
 // PUT /api/orders/[id] { order_status?, shipping_address? } - the Flask contract:
@@ -16,12 +16,12 @@ export async function GET(_req: NextRequest, ctx: RouteContext<"/api/orders/[id]
 export async function PUT(req: NextRequest, ctx: RouteContext<"/api/orders/[id]">) {
   const blocked = await gate();
   if (blocked) return blocked;
-  const denied = requirePermission(req, "orders:manage");
+  const denied = await requirePermission(req, "orders:manage");
   if (denied) return denied;
   const { id } = await ctx.params;
   const body = await readBody(req);
   if (body instanceof Response) return body;
-  const result = updateOrder(toId(id), body);
+  const result = await updateOrder(toId(id), body);
   // cancelling or reopening moves stock, which the product pages show
   if ((result.body as { stock_changed?: boolean }).stock_changed) expire(TAG.catalog);
   return respond(result);

@@ -59,14 +59,13 @@ function isOwnApi() {
   }
 }
 
-function readLocal<T>(path: string): T {
+async function readLocal<T>(path: string): Promise<T> {
   const url = new URL(path, "http://local");
   const [, resource, rawId] = url.pathname.split("/");
   const id = rawId ? Number(rawId) : undefined;
   const q = url.searchParams;
 
-  const result =
-    resource === "settings"
+  const result = await (resource === "settings"
       ? store.getSettings()
       : resource === "content"
       ? store.getContent(rawId)
@@ -82,7 +81,7 @@ function readLocal<T>(path: string): T {
           ? id
             ? store.getOrder(id)
             : store.listOrders({ user_id: q.get("user_id") })
-          : { status: 404, body: { error: `unknown resource ${resource}` } };
+          : Promise.resolve({ status: 404, body: { error: `unknown resource ${resource}` } }));
 
   if (result.status >= 400) throw new ApiError(result.status, result.body as { error: string });
   return result.body as T;

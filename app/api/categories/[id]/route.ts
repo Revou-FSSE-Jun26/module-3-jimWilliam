@@ -8,25 +8,25 @@ export async function GET(_req: NextRequest, ctx: RouteContext<"/api/categories/
   const blocked = await gate();
   if (blocked) return blocked;
   const { id } = await ctx.params;
-  return respond(getCategory(toId(id)));
+  return respond(await getCategory(toId(id)));
 }
 
 export async function PUT(req: NextRequest, ctx: RouteContext<"/api/categories/[id]">) {
   const blocked = await gate();
   if (blocked) return blocked;
-  const denied = requirePermission(req, "categories:write");
+  const denied = await requirePermission(req, "categories:write");
   if (denied) return denied;
   const { id } = await ctx.params;
   const body = await readBody(req);
-  return body instanceof Response ? body : respond(expiring(updateCategory(toId(id), body), TAG.catalog));
+  return body instanceof Response ? body : respond(expiring(await updateCategory(toId(id), body), TAG.catalog));
 }
 
 // 409 { error, id, product_count } while products still belong to it
 export async function DELETE(req: NextRequest, ctx: RouteContext<"/api/categories/[id]">) {
   const blocked = await gate();
   if (blocked) return blocked;
-  const denied = requirePermission(req, "categories:write");
+  const denied = await requirePermission(req, "categories:write");
   if (denied) return denied;
   const { id } = await ctx.params;
-  return respond(expiring(deleteCategory(toId(id)), TAG.catalog));
+  return respond(expiring(await deleteCategory(toId(id)), TAG.catalog));
 }

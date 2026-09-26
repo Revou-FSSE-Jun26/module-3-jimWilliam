@@ -63,9 +63,15 @@ export default function ProductManager({
     setDeletingId(p.product_id);
     setRowError(null);
     try {
-      await api.deleteProduct(p.product_id);
-      setProducts((prev) => prev.filter((x) => x.product_id !== p.product_id));
-      toast.success(`Deleted ${p.product_name}`);
+      const { withdrawn } = await api.deleteProduct(p.product_id);
+      if (withdrawn) {
+        // it is in past orders, so the API took it off sale instead of deleting it
+        setProducts((prev) => prev.map((x) => (x.product_id === p.product_id ? { ...x, is_active: false } : x)));
+        toast.success(`${p.product_name} is in past orders, so it was withdrawn from sale instead`);
+      } else {
+        setProducts((prev) => prev.filter((x) => x.product_id !== p.product_id));
+        toast.success(`Deleted ${p.product_name}`);
+      }
       router.refresh();
     } catch (e) {
       // e.g. 409 "product cannot be deleted while it has active orders" - shown right on the row

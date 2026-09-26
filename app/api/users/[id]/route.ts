@@ -8,7 +8,7 @@ export async function GET(_req: NextRequest, ctx: RouteContext<"/api/users/[id]"
   const blocked = await gate();
   if (blocked) return blocked;
   const { id } = await ctx.params;
-  return respond(getUser(toId(id)));
+  return respond(await getUser(toId(id)));
 }
 
 // PUT /api/users/:id -> 200 { message, user } | 400 { error, details } | 403 | 404 | 409
@@ -17,10 +17,10 @@ export async function GET(_req: NextRequest, ctx: RouteContext<"/api/users/[id]"
 export async function PUT(req: NextRequest, ctx: RouteContext<"/api/users/[id]">) {
   const blocked = await gate();
   if (blocked) return blocked;
-  const who = actor(req);
+  const who = await actor(req);
   if (!who) return respond({ status: 401, body: { error: "authentication required" } });
   const { id } = await ctx.params;
   const body = await readBody(req);
   if (body instanceof Response) return body;
-  return respond(updateUser(toId(id), body, { id: who.id, role: who.role }));
+  return respond(await updateUser(toId(id), body, { id: who.id, role: who.role }));
 }

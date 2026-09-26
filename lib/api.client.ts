@@ -63,7 +63,7 @@ export const api = {
     request<Created<"product", Product>>("/products", { method: "POST", body: data }),
   updateProduct: (id: number, data: Partial<ProductInput>) =>
     request<Created<"product", Product>>(`/products/${id}`, { method: "PUT", body: data }),
-  deleteProduct: (id: number) => request<{ message: string; id: number }>(`/products/${id}`, { method: "DELETE" }),
+  deleteProduct: (id: number) => request<{ message: string; id: number; withdrawn?: boolean }>(`/products/${id}`, { method: "DELETE" }),
 
   categories: (signal?: AbortSignal) => request<(Category & { product_count?: number })[]>("/categories", { signal }),
   createCategory: (data: { category_name: string; description?: string }) =>
