@@ -17,6 +17,7 @@ export default function Brand({ settings, className }: { settings: Pick<SiteSett
         height={36}
         unoptimized
         className="h-9 w-auto transition group-hover:scale-105"
+        style={{ width: "auto" }} // the logo's aspect ratio changes with each upload: keep the height, let the width follow
         data-testid="brand-logo"
       />
       <span className="font-mono text-sm font-semibold tracking-[0.28em] text-ink uppercase" data-testid="brand-name">
