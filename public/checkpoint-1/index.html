@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jim — Frontend Developer</title>
+    <meta
+      name="description"
+      content="Profile page for Jim, frontend developer on the RevoTech project. Built with semantic HTML5, CSS Grid and Flexbox."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Site header: brand + primary navigation, laid out with Flexbox -->
+    <header class="site-header">
+      <a class="brand" href="#top">
+        <img class="brand__mark" src="logo.svg" alt="" width="52" height="26" />
+        <span class="brand__text">REVO<strong>TECH</strong></span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="/about">RevoTech app →</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="hero__eyebrow">Module 3 · Checkpoint 1</p>
+        <h1 id="hero-title" class="hero__title">Jim</h1>
+        <p class="hero__role">Frontend Developer — HTML, CSS, JavaScript, TypeScript</p>
+        <p class="hero__lede">
+          I build the storefront side of RevoTech: a computer-parts shop where the catalogue,
+          cart and admin dashboard all run on a typed, component-driven frontend. This page is
+          the fundamentals checkpoint — semantic markup, the box model, Grid, Flexbox and a
+          responsive breakpoint, written without a framework.
+        </p>
+
+        <ul class="hero__stats">
+          <li>
+            <span class="stat__value">23</span>
+            <span class="stat__label">Products modelled</span>
+          </li>
+          <li>
+            <span class="stat__value">6</span>
+            <span class="stat__label">Categories</span>
+          </li>
+          <li>
+            <span class="stat__value">3</span>
+            <span class="stat__label">User roles</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section" aria-labelledby="about-title">
+        <h2 id="about-title" class="section__title">About</h2>
+        <div class="about">
+          <p>
+            Backend first, frontend second. In Module 2 I built the RevoTech Flask API — users,
+            categories, products, orders and order items on PostgreSQL, with JWT auth and a
+            Swagger spec. Module 3 puts a real interface on top of it.
+          </p>
+          <p>
+            My approach is to get the data model right before styling anything. Every product on
+            this page comes from the same catalogue the API serves, so the types line up from the
+            database through to the React components in the later checkpoints.
+          </p>
+          <aside class="callout">
+            <h3 class="callout__title">Currently</h3>
+            <p>
+              Shipping the RevoTech frontend on Next.js and Tailwind, deployed to Vercel and
+              covered by a Playwright end-to-end suite.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Skills: two-dimensional CSS Grid layout -->
+      <section id="skills" class="section" aria-labelledby="skills-title">
+        <h2 id="skills-title" class="section__title">Skills</h2>
+        <ul class="skill-grid">
+          <li class="skill-card">
+            <h3 class="skill-card__name">HTML5</h3>
+            <p class="skill-card__note">Semantic structure, accessible forms, landmark elements.</p>
+          </li>
+          <li class="skill-card">
+            <h3 class="skill-card__name">CSS</h3>
+            <p class="skill-card__note">Box model, Grid, Flexbox, custom properties, media queries.</p>
+          </li>
+          <li class="skill-card">
+            <h3 class="skill-card__name">JavaScript</h3>
+            <p class="skill-card__note">DOM manipulation, events, <code>map</code> / <code>filter</code> / <code>reduce</code>.</p>
+          </li>
+          <li class="skill-card">
+            <h3 class="skill-card__name">TypeScript</h3>
+            <p class="skill-card__note">Interfaces, type aliases, union types, strict mode.</p>
+          </li>
+          <li class="skill-card">
+            <h3 class="skill-card__name">Tailwind CSS</h3>
+            <p class="skill-card__note">Utility-first styling, mobile-first responsive design.</p>
+          </li>
+          <li class="skill-card">
+            <h3 class="skill-card__name">Python &amp; Flask</h3>
+            <p class="skill-card__note">REST APIs, SQLAlchemy models, PostgreSQL, JWT auth.</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section" aria-labelledby="projects-title">
+        <h2 id="projects-title" class="section__title">Projects</h2>
+        <div class="project-list">
+          <article class="project">
+            <h3 class="project__name">RevoTech API</h3>
+            <p class="project__meta">Module 2 · Flask · PostgreSQL</p>
+            <p class="project__body">
+              REST API for an online computer-parts store. Five tables, full CRUD on products and
+              categories, orders with line items, and deletion guards that refuse to remove a
+              product while active orders reference it.
+            </p>
+          </article>
+
+          <article class="project">
+            <h3 class="project__name">RevoTech Frontend</h3>
+            <p class="project__meta">Module 3 · Next.js · TypeScript · Tailwind</p>
+            <p class="project__body">
+              The storefront: catalogue with live search and category filtering, cart and
+              checkout, and an admin dashboard with product and category management.
+            </p>
+          </article>
+
+          <article class="project">
+            <h3 class="project__name">Build Planner</h3>
+            <p class="project__meta">Module 3 · Extra</p>
+            <p class="project__body">
+              Pick one part per category and get a running total plus a compatibility check —
+              an LGA1851 processor will not sit in an AM5 board, and the planner says so.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact form -->
+      <section id="contact" class="section" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="section__title">Contact</h2>
+        <p class="section__lede">
+          Questions about the project, or spotted something broken? Send a note.
+        </p>
+
+        <form class="contact-form" action="#" method="post">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone <span class="field__optional">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+62-812-0000-0000" />
+          </div>
+
+          <div class="field">
+            <label for="topic">Topic</label>
+            <select id="topic" name="topic">
+              <option value="general">General question</option>
+              <option value="bug">Report a bug</option>
+              <option value="order">Order support</option>
+              <option value="work">Work together</option>
+            </select>
+          </div>
+
+          <div class="field field--full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="What is on your mind?" required></textarea>
+          </div>
+
+          <div class="field field--full field--inline">
+            <input type="checkbox" id="copy" name="copy" />
+            <label for="copy">Email me a copy of this message</label>
+          </div>
+
+          <div class="field--full">
+            <button type="submit" class="button">Send message</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>RevoTech — RevoU Module 3, Checkpoint 1. Built with semantic HTML and CSS, no framework.</p>
+      <ul class="site-footer__links">
+        <li><a href="https://github.com/jim1504">GitHub</a></li>
+        <li><a href="#top">Back to top</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

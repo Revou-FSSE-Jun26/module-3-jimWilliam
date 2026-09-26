@@ -1,0 +1,508 @@
+/* ==========================================================================
+   RevoTech — Checkpoint 1, HTML/CSS fundamentals
+   Plain CSS on purpose: no framework, no build step. Open index.html directly.
+
+   Layout duties are split deliberately so both techniques are demonstrated:
+     - Flexbox  -> one-dimensional rows (header, nav, stats, footer, form rows)
+     - Grid     -> two-dimensional areas (skills, projects, the contact form)
+   ========================================================================== */
+
+/* ---------- design tokens ------------------------------------------------ */
+:root {
+  --void: #060914;
+  --surface: #0d1425;
+  --surface-2: #131c30;
+  --line: #1c2740;
+  --cyan: #22d3ee;
+  --magenta: #e879f9;
+  --lime: #a3e635;
+
+  --text: #e6edf7;
+  --text-dim: #9aa8bf;
+
+  --radius: 14px;
+  --gap: 1.5rem;
+  --maxw: 1080px;
+
+  --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", ui-monospace, "Courier New", monospace;
+}
+
+/* ---------- reset / box model -------------------------------------------- */
+/* border-box so padding and border count inside the declared width */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  color: var(--text);
+  background-color: var(--void);
+  /* faint grid, the same motif the Next.js app uses later */
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: var(--lime);
+}
+
+/* visible focus ring for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+/* ---------- header: Flexbox row ------------------------------------------ */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: 1.25rem 1.5rem;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text);
+  letter-spacing: 0.14em;
+  font-size: 0.95rem;
+}
+
+.brand__mark {
+  display: block;
+  width: auto;
+  height: 26px;
+}
+
+.brand__text strong {
+  color: var(--cyan);
+}
+
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.site-nav__list a {
+  color: var(--text-dim);
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav__list a:hover,
+.site-nav__list a:focus-visible {
+  color: var(--text);
+  border-bottom-color: var(--cyan);
+  text-decoration: none;
+}
+
+/* ---------- shared section shell ----------------------------------------- */
+main {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  /* margin (outside) + padding (inside) + border = the box model, visibly */
+  margin-block: 3.5rem;
+  padding: 2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+}
+
+.section__title {
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.section__title::before {
+  content: "// ";
+  color: var(--cyan);
+  font-family: var(--font-mono);
+}
+
+.section__lede {
+  color: var(--text-dim);
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- hero --------------------------------------------------------- */
+.hero {
+  margin-block: 3rem 2rem;
+  padding: 2.5rem 2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-image: radial-gradient(circle at 18% 15%, rgba(34, 211, 238, 0.16), transparent 55%),
+    radial-gradient(circle at 85% 80%, rgba(232, 121, 249, 0.13), transparent 50%);
+  background-color: var(--surface);
+}
+
+.hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  line-height: 1.1;
+  margin-block: 0.5rem 0.25rem;
+}
+
+.hero__role {
+  color: var(--magenta);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero__lede {
+  max-width: 62ch;
+  color: var(--text-dim);
+}
+
+/* Flexbox row of stats */
+.hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.stat__value {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  color: var(--lime);
+}
+
+.stat__label {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+/* ---------- about: Grid, text beside a callout --------------------------- */
+.about {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gap);
+}
+
+.about p + p {
+  margin-top: 1rem;
+}
+
+.callout {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--magenta);
+  border-radius: 10px;
+  background-color: var(--surface-2);
+}
+
+.callout__title {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  margin-bottom: 0.5rem;
+}
+
+.callout p {
+  font-size: 0.92rem;
+  color: var(--text-dim);
+}
+
+/* ---------- skills: two-dimensional Grid --------------------------------- */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+.skill-card {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background-color: var(--surface-2);
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.skill-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(34, 211, 238, 0.14);
+}
+
+.skill-card__name {
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+
+.skill-card__note {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+}
+
+/* ---------- projects: Grid ----------------------------------------------- */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background-color: var(--surface-2);
+}
+
+.project__name {
+  font-size: 1.05rem;
+}
+
+.project__meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--cyan);
+}
+
+.project__body {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+/* ---------- contact form: Grid of fields --------------------------------- */
+.contact-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+.field--inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.field label {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+.field__optional {
+  color: #64748b;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  background-color: var(--void);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #5b6880;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.18);
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--cyan);
+}
+
+.button {
+  padding: 0.8rem 1.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--void);
+  background-color: var(--cyan);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+.button:hover {
+  box-shadow: 0 0 22px rgba(34, 211, 238, 0.55);
+  transform: translateY(-1px);
+}
+
+/* ---------- footer: Flexbox ---------------------------------------------- */
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  max-width: var(--maxw);
+  margin: 4rem auto 2rem;
+  padding: 1.5rem;
+
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.site-footer__links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+/* ==========================================================================
+   Responsive breakpoints — verified by resizing the browser, not assumed.
+   ========================================================================== */
+
+/* Tablet: drop the three-column grids to two columns */
+@media (max-width: 900px) {
+  .skill-grid,
+  .project-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile: single column everywhere, stacked header */
+@media (max-width: 640px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .section {
+    padding: 1.5rem 1.25rem;
+    margin-block: 2.5rem;
+  }
+
+  .hero__stats {
+    gap: 1.5rem;
+  }
+
+  .skill-grid,
+  .project-list,
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Respect users who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
