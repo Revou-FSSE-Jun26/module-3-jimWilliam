@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import CommandPalette from "@/components/layout/CommandPalette";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
@@ -87,6 +88,8 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           <CommandPalette />
           <PromoPopup />
         </Providers>
+        {/* Vercel Web Analytics: page views, sent only from a Vercel deployment (a no-op in development) */}
+        <Analytics />
       </body>
     </html>
   );

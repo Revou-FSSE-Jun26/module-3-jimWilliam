@@ -291,6 +291,9 @@ converted AVIFs, never the original — and unused ones are deleted (see
    are prerendered from the database).
 5. Run the test suite against the live URL (above). It writes test users, products and orders into the database;
    `npm run db:setup -- --reset` against the session pooler URL clears them.
+6. **Analytics → Enable** in the Vercel project. The `<Analytics />` component in `app/layout.tsx` (Vercel Web
+   Analytics) then reports page views, including client-side navigations, to the project's Analytics tab. It sends
+   nothing in development or outside Vercel, and it uses no cookies.
 
 **Environment files** — two, and only one of them is committed:
 
