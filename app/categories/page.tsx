@@ -9,7 +9,7 @@ import { CATEGORY_ACCENT } from "@/lib/meta";
 
 export const metadata: Metadata = {
   title: "Categories",
-  description: "Browse RevoTech by category: processors, motherboards, memory and storage, graphics, power and cooling, peripherals.",
+  description: "Browse the catalogue by category: processors, motherboards, memory and storage, graphics, power and cooling, peripherals.",
 };
 
 // Rendering strategy: ISR - categories change rarely, so prerender and refresh every 10 minutes.

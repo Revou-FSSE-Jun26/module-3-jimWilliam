@@ -189,7 +189,7 @@ export default function SpecsEditor({
                     onChange={(e) => renameGroup(g.group, e.target.value)}
                     placeholder="(no group)"
                     maxLength={SPEC_LIMITS.group}
-                    className="min-w-0 flex-1 border-b border-line bg-transparent py-1 font-mono text-[0.7rem] tracking-[0.12em] text-cyan uppercase outline-none placeholder:text-faint placeholder:normal-case focus:border-cyan"
+                    className="min-w-0 flex-1 border-b border-line bg-transparent py-1 font-mono text-[0.7rem] tracking-[0.12em] text-cyan uppercase outline-hidden placeholder:text-faint placeholder:normal-case focus:border-cyan"
                   />
                   <button type="button" onClick={() => removeGroup(g.group)} className="shrink-0 text-[0.7rem] text-faint hover:text-rose" aria-label={`Remove group ${g.group ?? "(no group)"}`}>
                     remove group

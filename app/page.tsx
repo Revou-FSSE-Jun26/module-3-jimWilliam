@@ -7,6 +7,7 @@ import { serverApi } from "@/lib/api.server";
 import { buttonVariants, cx } from "@/lib/classes";
 import { featuredProducts } from "@/lib/content";
 import { CATEGORY_ACCENT } from "@/lib/meta";
+import { DEFAULT_SETTINGS } from "@/lib/settings";
 
 // Rendering strategy: ISR. Prerendered at build, regenerated at most every 5 minutes, so the
 // home page is static-fast but still picks up price and stock changes.
@@ -18,10 +19,12 @@ export const revalidate = 300;
  * sees an "Edit homepage" bar, and saving expires this page's cache tags so it re-renders.
  */
 export default async function HomePage() {
-  const [products, categories, content] = await Promise.all([
+  const [products, categories, content, settings] = await Promise.all([
     serverApi.products({}, { revalidate: 300 }),
     serverApi.categories({ revalidate: 300 }),
     serverApi.home({ revalidate: 300 }),
+    // same request as the root layout's, so Next serves it from the one fetch
+    serverApi.settings({ cache: "force-cache" }).catch(() => DEFAULT_SETTINGS),
   ]);
   const featured = featuredProducts(content, products);
 
@@ -35,7 +38,7 @@ export default async function HomePage() {
 
       <section aria-labelledby="pillars" className="grid gap-4 md:grid-cols-3">
         <h2 id="pillars" className="sr-only">
-          Why RevoTech
+          Why {settings.shop_name}
         </h2>
         {content.pillars.map((p, i) => (
           <Card key={i} className="clip-hud p-6">

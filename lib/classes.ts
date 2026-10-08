@@ -27,4 +27,4 @@ export const buttonVariants = {
 } as const;
 
 export const inputClasses =
-  "w-full rounded-xl border border-line bg-void/70 px-3.5 py-2.5 text-sm text-ink transition placeholder:text-faint focus:border-cyan focus:outline-none focus:ring-3 focus:ring-cyan/15 aria-invalid:border-rose aria-invalid:focus:ring-rose/20";
+  "w-full rounded-xl border border-line bg-void/70 px-3.5 py-2.5 text-sm text-ink transition placeholder:text-faint focus:border-cyan focus:outline-hidden focus:ring-3 focus:ring-cyan/15 aria-invalid:border-rose aria-invalid:focus:ring-rose/20";

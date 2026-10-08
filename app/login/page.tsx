@@ -4,7 +4,7 @@ import AuthShell from "@/components/auth/AuthShell";
 import { PublicOnlyRoute } from "@/components/auth/Guards";
 import LoginForm from "@/components/auth/LoginForm";
 
-export const metadata: Metadata = { title: "Log in", description: "Sign in to your RevoTech account." };
+export const metadata: Metadata = { title: "Log in", description: "Sign in to your account." };
 
 export default function LoginPage() {
   return (

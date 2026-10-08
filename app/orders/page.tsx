@@ -4,7 +4,7 @@ import OrdersView from "@/components/orders/OrdersView";
 import PageHeader from "@/components/ui/PageHeader";
 import { serverApi } from "@/lib/api.server";
 
-export const metadata: Metadata = { title: "My orders", description: "Track your RevoTech orders from paid to delivered." };
+export const metadata: Metadata = { title: "My orders", description: "Track your orders from paid to delivered." };
 
 // Rendering strategy: dynamic - orders change the moment someone checks out.
 export const dynamic = "force-dynamic";

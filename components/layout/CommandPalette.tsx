@@ -241,7 +241,7 @@ export default function CommandPalette() {
           }}
           onKeyDown={onKeyDown}
           placeholder="Jump to a product, category or page…"
-          className="h-14 flex-1 bg-transparent text-[0.95rem] outline-none placeholder:text-faint"
+          className="h-14 flex-1 bg-transparent text-[0.95rem] outline-hidden placeholder:text-faint"
           role="combobox"
           aria-expanded="true"
           aria-controls="cmd-list"
@@ -249,7 +249,7 @@ export default function CommandPalette() {
           aria-autocomplete="list"
           data-testid="command-input"
         />
-        <kbd className="rounded border border-line-bright px-1.5 py-0.5 font-mono text-[0.65rem] text-faint">esc</kbd>
+        <kbd className="rounded-sm border border-line-bright px-1.5 py-0.5 font-mono text-[0.65rem] text-faint">esc</kbd>
       </div>
 
       <ul id="cmd-list" role="listbox" aria-label="Results" className="max-h-[52vh] overflow-y-auto p-2">

@@ -28,7 +28,7 @@ export default function CatalogRail() {
   const ss = String(seconds % 60).padStart(2, "0");
 
   return (
-    <div className="border-b border-line/70 bg-surface/40 backdrop-blur">
+    <div className="border-b border-line/70 bg-surface/40 backdrop-blur-sm">
       <div className="mx-auto flex h-11 max-w-7xl items-center justify-between gap-4 px-4 font-mono text-[0.7rem] tracking-[0.12em] uppercase sm:px-6">
         <nav aria-label="Breadcrumb">
           <ol className="flex items-center gap-2 text-faint">

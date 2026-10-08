@@ -120,7 +120,7 @@ export default function DomLab() {
         <input
           id="dom-lab-input"
           placeholder="Add a part to the wishlist…"
-          className="h-10 flex-1 rounded-xl border border-line bg-void/70 px-3 text-sm focus:border-cyan focus:outline-none"
+          className="h-10 flex-1 rounded-xl border border-line bg-void/70 px-3 text-sm focus:border-cyan focus:outline-hidden"
         />
         <button type="submit" className="rounded-xl bg-cyan px-4 font-mono text-xs font-semibold text-void uppercase">
           Add

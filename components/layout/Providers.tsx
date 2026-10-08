@@ -20,7 +20,7 @@ export default function Providers({ settings, children }: { settings: SiteSettin
             gutter={10}
             toastOptions={{
               duration: 3500,
-              className: "!font-sans !text-sm",
+              className: "font-sans! text-sm!",
               style: {
                 background: "var(--color-surface-2)",
                 color: "var(--color-ink)",

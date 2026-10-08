@@ -96,7 +96,7 @@ export default function ProductCard({
         </div>
 
         <h3 className="text-[1.02rem] leading-snug font-semibold text-ink">
-          <Link href={href} className="after:absolute after:inset-0 after:content-[''] hover:text-cyan focus-visible:outline-none">
+          <Link href={href} className="after:absolute after:inset-0 after:content-[''] hover:text-cyan focus-visible:outline-hidden">
             {product.product_name}
           </Link>
         </h3>

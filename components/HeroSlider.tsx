@@ -129,7 +129,7 @@ export default function HeroSlider({ slides }: { slides: HeroSlide[] }) {
         <button
           type="button"
           onClick={() => setPlaying((p) => !p)}
-          className="grid size-9 place-items-center rounded-full border border-line-bright bg-void/60 text-dim backdrop-blur transition hover:border-cyan hover:text-cyan"
+          className="grid size-9 place-items-center rounded-full border border-line-bright bg-void/60 text-dim backdrop-blur-sm transition hover:border-cyan hover:text-cyan"
           aria-label={playing ? "Pause slideshow" : "Play slideshow"}
           aria-pressed={!playing}
           data-testid="hero-playpause"
@@ -164,7 +164,7 @@ export default function HeroSlider({ slides }: { slides: HeroSlide[] }) {
         <button
           type="button"
           onClick={() => goTo(index - 1)}
-          className="grid size-9 place-items-center rounded-full border border-line-bright bg-void/60 text-dim backdrop-blur transition hover:border-cyan hover:text-cyan"
+          className="grid size-9 place-items-center rounded-full border border-line-bright bg-void/60 text-dim backdrop-blur-sm transition hover:border-cyan hover:text-cyan"
           aria-label="Previous slide"
         >
           ‹
@@ -172,7 +172,7 @@ export default function HeroSlider({ slides }: { slides: HeroSlide[] }) {
         <button
           type="button"
           onClick={() => goTo(index + 1)}
-          className="grid size-9 place-items-center rounded-full border border-line-bright bg-void/60 text-dim backdrop-blur transition hover:border-cyan hover:text-cyan"
+          className="grid size-9 place-items-center rounded-full border border-line-bright bg-void/60 text-dim backdrop-blur-sm transition hover:border-cyan hover:text-cyan"
           aria-label="Next slide"
         >
           ›

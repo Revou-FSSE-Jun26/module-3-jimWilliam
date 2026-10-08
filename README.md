@@ -66,7 +66,7 @@ borders and monospace numerals.
 | Admin area | Full width with the dashboard tabs in a **vertical sidebar** (a scrolling row on phones), no storefront footer, and a **dark / light theme** switch for staff |
 | Screens | From 390 px phones to **4K monitors**: above 1920 px the whole layout scales with the window, so it fills a 4K screen instead of sitting in a narrow strip |
 | Extras | Card-to-detail **view transition**, **Ctrl/⌘ K command palette**, **build planner** with compatibility checks |
-| Quality | 79 Playwright tests (run against both the in-memory store and PostgreSQL), toasts for every write, skeleton loaders and error boundaries on every data route |
+| Quality | 81 Playwright tests (run against both the in-memory store and PostgreSQL), toasts for every write, skeleton loaders and error boundaries on every data route |
 
 ## Tech stack
 
@@ -233,6 +233,7 @@ PLAYWRIGHT_BASE_URL=https://<your-project>.vercel.app npx playwright test
 | `admin.spec.ts` | Customers see Orders and no admin bars, admins see Dashboard instead; edit a product from its page, the homepage (slide, heading, featured pick, validation) and the About page, each surviving a fresh load; content validated by the API; `PUT /orders` contract; mark paid → cancel (restocks) → reopen → change address |
 | `specs.spec.ts` | Grouped spec table with its source and "Show all" (NVIDIA's RTX 5060 column, not the Ti's); pasted HTML → rows; the spec fetcher refuses private addresses; invalid rows are rejected; paste → edit → save → product page; "Label: value" text |
 | `layout.spec.ts` | The root font size at 1440, 1920, 2560 and 3840 px and the page column growing with it; the dashboard full width with stacked sidebar tabs and no footer (the storefront keeps it); tabs in a row on a phone with no sideways scroll; the light theme switching, surviving a reload from the first paint, staying off the storefront, and never applying to a customer |
+| `seo.spec.ts` | `robots.txt` lets crawlers into the shop but not the dashboard, account, checkout or API, and names the sitemap; `sitemap.xml` lists the storefront pages and every product for sale with its image, and leaves out the one that is not |
 | `global-setup.ts` | Registers a test user through `POST /users` (no UI), stores `{ id, username, email }` in localStorage, saves the session to `tests/.auth/` |
 
 The suite passes against `next dev`, and was also run green against a production build (`next build && next start`)

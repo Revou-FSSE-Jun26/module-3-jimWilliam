@@ -7,7 +7,7 @@ import { serverApi } from "@/lib/api.server";
 
 export const metadata: Metadata = {
   title: "Products",
-  description: "Every part in the RevoTech catalogue — search by model number or filter by category.",
+  description: "Every part in the catalogue — search by model number or filter by category.",
 };
 
 // Rendering strategy: dynamic. Stock and prices change with every order, and the result set

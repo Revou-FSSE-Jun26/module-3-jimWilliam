@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, type KeyboardEvent } from "react";
+import type { KeyboardEvent, Ref } from "react";
 import { cx, inputClasses } from "@/lib/classes";
 
 export interface SearchBarProps {
@@ -14,13 +14,22 @@ export interface SearchBarProps {
   label?: string;
   className?: string;
   compact?: boolean;
+  /** the <input> itself (React 19 passes ref as an ordinary prop) */
+  ref?: Ref<HTMLInputElement>;
 }
 
 /** Controlled search input. It owns no state, so the same component drives the header and the catalogue. */
-const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(function SearchBar(
-  { value, onChange, onSubmit, placeholder = "Search parts…", id = "search", label = "Search products", className, compact = false },
-  ref
-) {
+export default function SearchBar({
+  value,
+  onChange,
+  onSubmit,
+  placeholder = "Search parts…",
+  id = "search",
+  label = "Search products",
+  className,
+  compact = false,
+  ref,
+}: SearchBarProps) {
   const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -63,6 +72,4 @@ const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(function SearchBa
       />
     </div>
   );
-});
-
-export default SearchBar;
+}

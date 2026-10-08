@@ -3,7 +3,7 @@ import AuthShell from "@/components/auth/AuthShell";
 import { PublicOnlyRoute } from "@/components/auth/Guards";
 import RegisterForm from "@/components/auth/RegisterForm";
 
-export const metadata: Metadata = { title: "Register", description: "Create a RevoTech account to check out and track orders." };
+export const metadata: Metadata = { title: "Register", description: "Create an account to check out and track your orders." };
 
 export default function RegisterPage() {
   return (

@@ -213,7 +213,7 @@ export default function SettingsForm({ initial }: { initial: SiteSettings }) {
             </span>
             <span className="flex items-center gap-2 font-mono text-[0.65rem] text-faint">
               Tab icon
-              <Image src={`/api/settings/logo?variant=icon&v=${logoVersion}`} alt="" width={32} height={32} unoptimized className="size-8 rounded bg-surface" />
+              <Image src={`/api/settings/logo?variant=icon&v=${logoVersion}`} alt="" width={32} height={32} unoptimized className="size-8 rounded-sm bg-surface" />
               <Image src={`/api/settings/logo?variant=icon&v=${logoVersion}`} alt="" width={16} height={16} unoptimized className="size-4" />
             </span>
           </div>

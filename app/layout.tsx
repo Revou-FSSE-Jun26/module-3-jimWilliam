@@ -8,16 +8,13 @@ import Providers from "@/components/layout/Providers";
 import ShopOnly from "@/components/layout/ShopOnly";
 import { serverApi } from "@/lib/api.server";
 import { DEFAULT_SETTINGS } from "@/lib/settings";
+import { SITE_URL } from "@/lib/site";
 import { THEME_BOOT_SCRIPT } from "@/lib/theme";
 import PromoPopup from "@/components/PromoPopup";
 import "./globals.css";
 
 const grotesk = Space_Grotesk({ variable: "--font-grotesk", subsets: ["latin"], display: "swap" });
 const mono = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"], display: "swap" });
-
-const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "http://localhost:8100";
 
 /**
  * The store settings (name, tagline, logo version, time zone), read once per render of the
@@ -29,7 +26,7 @@ const loadSettings = () => serverApi.settings({ cache: "force-cache" }).catch(()
 export async function generateMetadata(): Promise<Metadata> {
   const s = await loadSettings();
   return {
-    metadataBase: new URL(siteUrl),
+    metadataBase: new URL(SITE_URL),
     title: {
       default: `${s.shop_name} — ${s.tagline || "PC parts"}`,
       template: `%s · ${s.shop_name}`,
