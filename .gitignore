@@ -41,3 +41,7 @@ yarn-debug.log*
 yarn-error.log*
 .idea/
 .shots/
+
+# Playwright
+node_modules/
+/playwright/.auth/
