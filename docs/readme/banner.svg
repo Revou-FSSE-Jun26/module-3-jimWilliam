@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-labelledby="title desc">
+  <title id="title">RevoTech</title>
+  <desc id="desc">The RevoTech wordmark glowing over a neon perspective grid.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#060914"/>
+      <stop offset="0.7" stop-color="#0d1425"/>
+      <stop offset="1" stop-color="#060914"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.66" r="0.6">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.22"/>
+      <stop offset="0.45" stop-color="#e879f9" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#060914" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="floor">
+      <rect x="0" y="250" width="1280" height="110" fill="url(#fade)"/>
+    </mask>
+    <linearGradient id="horizon" x1="0" x2="1">
+      <stop offset="0" stop-color="#e879f9" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#e879f9"/>
+      <stop offset="1" stop-color="#e879f9" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" x2="1">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#22d3ee" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-60%" width="140%" height="220%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="soft" x="-10%" y="-200%" width="120%" height="500%">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="360" fill="url(#sky)"/>
+  <rect width="1280" height="360" fill="url(#halo)"/>
+
+  <!-- stars -->
+  <g fill="#e6edf7">
+    <circle cx="112" cy="64" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.1s" repeatCount="indefinite"/></circle>
+    <circle cx="268" cy="132" r="1"><animate attributeName="opacity" values="1;0.2;1" dur="2.4s" repeatCount="indefinite"/></circle>
+    <circle cx="402" cy="48" r="1.2"><animate attributeName="opacity" values="0.3;1;0.3" dur="4s" repeatCount="indefinite"/></circle>
+    <circle cx="884" cy="58" r="1.3"><animate attributeName="opacity" values="1;0.3;1" dur="3.6s" repeatCount="indefinite"/></circle>
+    <circle cx="1006" cy="140" r="1"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.8s" repeatCount="indefinite"/></circle>
+    <circle cx="1170" cy="84" r="1.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.3s" repeatCount="indefinite"/></circle>
+    <circle cx="190" cy="206" r="0.9" opacity="0.5"/>
+    <circle cx="1100" cy="214" r="0.9" opacity="0.5"/>
+  </g>
+
+  <!-- perspective floor -->
+  <g mask="url(#floor)" stroke="#22d3ee" stroke-width="1" opacity="0.75">
+    <g>
+      <line x1="256" y1="250" x2="-1760" y2="360"/>
+      <line x1="280" y1="250" x2="-1610" y2="360"/>
+      <line x1="304" y1="250" x2="-1460" y2="360"/>
+      <line x1="328" y1="250" x2="-1310" y2="360"/>
+      <line x1="352" y1="250" x2="-1160" y2="360"/>
+      <line x1="376" y1="250" x2="-1010" y2="360"/>
+      <line x1="400" y1="250" x2="-860" y2="360"/>
+      <line x1="424" y1="250" x2="-710" y2="360"/>
+      <line x1="448" y1="250" x2="-560" y2="360"/>
+      <line x1="472" y1="250" x2="-410" y2="360"/>
+      <line x1="496" y1="250" x2="-260" y2="360"/>
+      <line x1="520" y1="250" x2="-110" y2="360"/>
+      <line x1="544" y1="250" x2="40" y2="360"/>
+      <line x1="568" y1="250" x2="190" y2="360"/>
+      <line x1="592" y1="250" x2="340" y2="360"/>
+      <line x1="616" y1="250" x2="490" y2="360"/>
+      <line x1="640" y1="250" x2="640" y2="360"/>
+      <line x1="664" y1="250" x2="790" y2="360"/>
+      <line x1="688" y1="250" x2="940" y2="360"/>
+      <line x1="712" y1="250" x2="1090" y2="360"/>
+      <line x1="736" y1="250" x2="1240" y2="360"/>
+      <line x1="760" y1="250" x2="1390" y2="360"/>
+      <line x1="784" y1="250" x2="1540" y2="360"/>
+      <line x1="808" y1="250" x2="1690" y2="360"/>
+      <line x1="832" y1="250" x2="1840" y2="360"/>
+      <line x1="856" y1="250" x2="1990" y2="360"/>
+      <line x1="880" y1="250" x2="2140" y2="360"/>
+      <line x1="904" y1="250" x2="2290" y2="360"/>
+      <line x1="928" y1="250" x2="2440" y2="360"/>
+      <line x1="952" y1="250" x2="2590" y2="360"/>
+      <line x1="976" y1="250" x2="2740" y2="360"/>
+      <line x1="1000" y1="250" x2="2890" y2="360"/>
+      <line x1="1024" y1="250" x2="3040" y2="360"/>
+    </g>
+    <g>
+      <line x1="0" y1="254" x2="1280" y2="254"/>
+      <line x1="0" y1="260" x2="1280" y2="260"/>
+      <line x1="0" y1="268" x2="1280" y2="268"/>
+      <line x1="0" y1="279" x2="1280" y2="279"/>
+      <line x1="0" y1="293" x2="1280" y2="293"/>
+      <line x1="0" y1="310" x2="1280" y2="310"/>
+      <line x1="0" y1="331" x2="1280" y2="331"/>
+      <line x1="0" y1="356" x2="1280" y2="356"/>
+    </g>
+    <!-- rows rushing towards the viewer -->
+    <line x1="0" x2="1280" y1="250" y2="250" stroke="#e879f9" stroke-width="1.5">
+      <animate attributeName="y1" values="250;360" dur="2.4s" calcMode="spline" keySplines="0.55 0 1 1" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="250;360" dur="2.4s" calcMode="spline" keySplines="0.55 0 1 1" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" x2="1280" y1="250" y2="250" stroke="#e879f9" stroke-width="1.5">
+      <animate attributeName="y1" values="250;360" dur="2.4s" begin="1.2s" calcMode="spline" keySplines="0.55 0 1 1" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="250;360" dur="2.4s" begin="1.2s" calcMode="spline" keySplines="0.55 0 1 1" repeatCount="indefinite"/>
+    </line>
+  </g>
+  <rect x="0" y="248" width="1280" height="3" fill="url(#horizon)" filter="url(#soft)"/>
+  <rect x="0" y="249" width="1280" height="1" fill="url(#horizon)"/>
+
+  <!-- HUD corners -->
+  <g fill="none" stroke="#22d3ee" stroke-width="2" opacity="0.8">
+    <path d="M24 56 V24 H56"/>
+    <path d="M1224 24 H1256 V56"/>
+    <path d="M24 304 V336 H56"/>
+    <path d="M1256 304 V336 H1224"/>
+  </g>
+  <g font-family="'JetBrains Mono','Cascadia Code',Consolas,'SFMono-Regular',Menlo,monospace" font-size="13" letter-spacing="2.5" fill="#6b7a93">
+    <circle cx="74" cy="40" r="4" fill="#a3e635">
+      <animate attributeName="opacity" values="1;0.15;1" dur="1.4s" repeatCount="indefinite"/>
+    </circle>
+    <text x="86" y="45">SYS.ONLINE // STOREFRONT</text>
+    <text x="1206" y="45" text-anchor="end">IDR · 23 PARTS · 6 CATEGORIES</text>
+    <text x="86" y="328">NEXT.JS 16 × FLASK API</text>
+    <text x="1206" y="328" text-anchor="end">SUPABASE · VERCEL</text>
+  </g>
+
+  <!-- wordmark -->
+  <g font-family="'Orbitron','Audiowide','Eurostile','Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="104" font-weight="800" letter-spacing="14" text-anchor="middle">
+    <text x="647" y="168" filter="url(#glow)" opacity="0.9">
+      <tspan fill="#e6edf7">REVO</tspan><tspan fill="#22d3ee">TECH</tspan>
+      <animate attributeName="opacity" values="0.9;0.65;0.9;0.95;0.9" dur="5s" repeatCount="indefinite"/>
+    </text>
+  </g>
+  <text x="640" y="214" text-anchor="middle" font-family="'JetBrains Mono','Cascadia Code',Consolas,'SFMono-Regular',Menlo,monospace" font-size="18" letter-spacing="6" fill="#9aa8bf">NEXT-GEN PC PARTS, PRICED IN RUPIAH</text>
+
+  <!-- scan beam -->
+  <rect x="-320" y="226" width="320" height="2" fill="url(#beam)">
+    <animate attributeName="x" values="-320;1280" dur="4.5s" repeatCount="indefinite"/>
+  </rect>
+</svg>
