@@ -1,14 +1,11 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { requirePermission } from "@/lib/server/auth";
-import { gate } from "@/lib/server/http";
 import { sweepAfterUpload } from "@/lib/server/upload-cleanup";
 import { MAX_UPLOAD_BYTES, processUpload, UploadError } from "@/lib/server/uploads";
 
 // POST /api/uploads  (multipart/form-data, field "file")
 // -> 201 { message, url, bytes, source } | 400 { error, details }
 export async function POST(req: NextRequest) {
-  const blocked = await gate();
-  if (blocked) return blocked;
   const denied = await requirePermission(req, "products:write");
   if (denied) return denied;
 

@@ -7,5 +7,8 @@ export const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
   : "http://localhost:8100";
 
+/** The author's full portfolio, linked from /about and the footer; /portfolio redirects to it. */
+export const PORTFOLIO_URL = "https://jimwilliam.vercel.app/";
+
 /** An absolute URL on this site for a path like "/products/3". */
 export const absoluteUrl = (path: string) => new URL(path, SITE_URL).toString();

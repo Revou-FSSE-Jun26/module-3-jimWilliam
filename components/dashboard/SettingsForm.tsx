@@ -205,7 +205,7 @@ export default function SettingsForm({ initial }: { initial: SiteSettings }) {
         <Section title="Logo" hint="Upload any image - PNG, JPG, WebP or SVG. It is converted to a vector (SVG) logo, which also becomes the browser-tab icon.">
           <div className="theme-storefront grid place-items-center gap-4 rounded-2xl border border-line bg-void p-6" data-testid="logo-current">
             <span className="flex items-center gap-3">
-              <Image src={`/api/settings/logo?v=${logoVersion}`} alt="Current logo" width={120} height={60} unoptimized className="h-14 w-auto" style={{ width: "auto" }} />
+              <Image src={`/api/logo?v=${logoVersion}`} alt="Current logo" width={120} height={60} unoptimized className="h-14 w-auto" style={{ width: "auto" }} />
               <span className="font-mono text-lg font-semibold tracking-[0.28em] uppercase">
                 {first}
                 <span className="text-cyan">{second}</span>
@@ -213,8 +213,8 @@ export default function SettingsForm({ initial }: { initial: SiteSettings }) {
             </span>
             <span className="flex items-center gap-2 font-mono text-[0.65rem] text-faint">
               Tab icon
-              <Image src={`/api/settings/logo?variant=icon&v=${logoVersion}`} alt="" width={32} height={32} unoptimized className="size-8 rounded-sm bg-surface" />
-              <Image src={`/api/settings/logo?variant=icon&v=${logoVersion}`} alt="" width={16} height={16} unoptimized className="size-4" />
+              <Image src={`/api/logo?variant=icon&v=${logoVersion}`} alt="" width={32} height={32} unoptimized className="size-8 rounded-sm bg-surface" />
+              <Image src={`/api/logo?variant=icon&v=${logoVersion}`} alt="" width={16} height={16} unoptimized className="size-4" />
             </span>
           </div>
 

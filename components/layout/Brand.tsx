@@ -11,7 +11,7 @@ export default function Brand({ settings, className }: { settings: Pick<SiteSett
   return (
     <span className={cx("flex items-center gap-2.5", className)}>
       <Image
-        src={`/api/settings/logo?v=${settings.logo_version}`}
+        src={`/api/logo?v=${settings.logo_version}`}
         alt=""
         width={72}
         height={36}

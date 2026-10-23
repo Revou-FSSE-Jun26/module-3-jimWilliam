@@ -1,6 +1,6 @@
 import { Skeleton, SkeletonGrid } from "@/components/ui/Skeleton";
 
-// Shown while GET /products is in flight - set MOCK_API_LATENCY_MS to see it on demand.
+// Shown while GET /products is in flight (throttle the network in DevTools to see it on demand).
 export default function Loading() {
   return (
     <div className="mx-auto max-w-7xl space-y-8 px-4 py-10 sm:px-6" data-testid="products-loading">

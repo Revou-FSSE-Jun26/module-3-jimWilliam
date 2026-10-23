@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
     applicationName: s.shop_name,
     keywords: ["PC parts", "GPU", "CPU", "motherboard", "Indonesia", s.shop_name],
     // the favicon follows the logo set in Dashboard -> Settings (a square SVG variant)
-    icons: { icon: [{ url: `/api/settings/logo?variant=icon&v=${s.logo_version}`, type: "image/svg+xml" }] },
+    icons: { icon: [{ url: `/api/logo?variant=icon&v=${s.logo_version}`, type: "image/svg+xml" }] },
     openGraph: {
       type: "website",
       siteName: s.shop_name,

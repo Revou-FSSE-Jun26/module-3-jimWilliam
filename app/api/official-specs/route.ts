@@ -1,6 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { requirePermission } from "@/lib/server/auth";
-import { gate } from "@/lib/server/http";
 import { SummaryError } from "@/lib/server/page-summary";
 import { extractSpecs, fetchSpecs } from "@/lib/server/page-specs";
 
@@ -11,8 +10,6 @@ import { extractSpecs, fetchSpecs } from "@/lib/server/page-specs";
 const MAX_PASTE = 2_000_000;
 
 export async function GET(req: NextRequest) {
-  const blocked = await gate();
-  if (blocked) return blocked;
   const denied = await requirePermission(req, "products:write");
   if (denied) return denied;
   const url = req.nextUrl.searchParams.get("url");
@@ -25,8 +22,6 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const blocked = await gate();
-  if (blocked) return blocked;
   const denied = await requirePermission(req, "products:write");
   if (denied) return denied;
   const body = (await req.json().catch(() => null)) as { html?: unknown; name?: unknown } | null;

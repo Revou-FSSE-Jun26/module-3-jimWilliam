@@ -33,8 +33,9 @@ export interface Product {
   is_active: boolean;
   created_at: string;
   /*
-   * Frontend extensions - not part of the Module 2 Flask model. Optional so the app still works
-   * against the real API; docs/updated-seed.sql adds the matching columns.
+   * Storefront detail: the manufacturer's page, a credited summary, the gallery and the spec
+   * table. The Flask API always returns them (migration 8f3a0c2d5b71); optional here so code
+   * that builds a product (forms, tests) needn't fill them in.
    */
   /** the manufacturer's own product page */
   official_url?: string | null;

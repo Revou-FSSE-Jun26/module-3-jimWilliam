@@ -11,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      allow: ["/", "/api/images/", "/api/settings/logo"],
+      allow: ["/", "/api/images/", "/api/logo"],
       disallow: ["/api/", "/dashboard", "/account", "/cart", "/checkout", "/orders", "/login", "/register"],
     },
     sitemap: absoluteUrl("/sitemap.xml"),

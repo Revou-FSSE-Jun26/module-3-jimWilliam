@@ -9,13 +9,15 @@ import ProductImage from "@/components/product/ProductImage";
 import SearchBar from "@/components/product/SearchBar";
 import { AvailabilityBadge } from "@/components/ui/Badge";
 import Modal from "@/components/ui/Modal";
+import { Skeleton } from "@/components/ui/Skeleton";
 import StockMeter from "@/components/ui/StockMeter";
+import { useApiData } from "@/hooks/useApiData";
 import { describeError } from "@/lib/api";
 import { api } from "@/lib/api.client";
 import { buttonVariants, cx } from "@/lib/classes";
 import { availabilityOf, formatIDR } from "@/lib/format";
 import { toast } from "@/lib/toast";
-import type { Category, Order, Product } from "@/lib/types";
+import type { Category, Product } from "@/lib/types";
 
 /**
  * Admin product table. Local state is the source of truth once the page has loaded, and every
@@ -23,16 +25,11 @@ import type { Category, Order, Product } from "@/lib/types";
  * with .filter(). router.refresh() then re-runs the Server Component so anything else rendered
  * from GET /products catches up.
  */
-export default function ProductManager({
-  initialProducts,
-  categories,
-  orders,
-}: {
-  initialProducts: Product[];
-  categories: Category[];
-  orders: Order[];
-}) {
+export default function ProductManager({ initialProducts, categories }: { initialProducts: Product[]; categories: Category[] }) {
   const router = useRouter();
+  // the stats need every order, which only a signed-in admin's token can read - so in the browser
+  const { data: orders, error: ordersError } = useApiData("dashboard-orders", api.orders);
+  if (ordersError) throw ordersError; // -> app/dashboard/error.tsx
   const [products, setProducts] = useState<Product[]>(initialProducts);
   const [query, setQuery] = useState("");
   const [creating, setCreating] = useState(false);
@@ -85,7 +82,15 @@ export default function ProductManager({
 
   return (
     <div className="space-y-8">
-      <StatsHUD products={products} orders={orders} />
+      {orders ? (
+        <StatsHUD products={products} orders={orders} />
+      ) : (
+        <div className="grid gap-4 md:grid-cols-2 2xl:grid-cols-4" aria-busy data-testid="stats-loading">
+          {Array.from({ length: 4 }, (_, i) => (
+            <Skeleton key={i} className="h-36 rounded-card" />
+          ))}
+        </div>
+      )}
 
       <section className="panel overflow-hidden" aria-labelledby="products-title">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-line p-5">

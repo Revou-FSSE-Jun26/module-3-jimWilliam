@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { SESSION_EXPIRED_EVENT } from "@/lib/api.client";
 import { can, isStaff, type Permission } from "@/lib/roles";
 import { STORAGE_KEYS } from "@/lib/storage-keys";
 import type { User } from "@/lib/types";
@@ -20,22 +21,35 @@ interface AuthContextValue {
   can: (permission: Permission) => boolean;
   /** false until localStorage has been read - guards must wait for it or a refresh logs you out */
   isReady: boolean;
-  login: (user: User) => void;
+  /** sign in with the API's access token; without one (a profile update) the current token is kept */
+  login: (user: User, token?: string) => void;
   logout: () => void;
 }
 
+/**
+ * What is kept in localStorage: the user plus the Flask API's access token, which
+ * lib/api.client.ts sends as `Authorization: Bearer` on every request.
+ */
+type Session = User & { token: string };
+
 const AuthContext = createContext<AuthContextValue | null>(null);
 
-function readStoredUser(): User | null {
+function readSession(): Session | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
-    const parsed = JSON.parse(raw) as Partial<User>;
-    return typeof parsed.id === "number" && typeof parsed.email === "string" ? (parsed as User) : null;
+    const parsed = JSON.parse(raw) as Partial<Session>;
+    // a session without a token (stored before the app used the Flask API) can't call it - sign in again
+    return typeof parsed.id === "number" && typeof parsed.email === "string" && typeof parsed.token === "string"
+      ? (parsed as Session)
+      : null;
   } catch {
     return null;
   }
 }
+
+/** The signed-in user without the token - nothing in the UI needs the token itself. */
+const userOf = (s: Session | null): User | null => (s ? { id: s.id, username: s.username, email: s.email, role: s.role } : null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -46,25 +60,31 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   // client render would produce a hydration mismatch.
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time hydration from localStorage
-    setCurrentUser(readStoredUser());
+    setCurrentUser(userOf(readSession()));
     setIsReady(true);
 
     // keep tabs in sync: logging out in one tab logs out the others
     const onStorage = (e: StorageEvent) => {
-      if (e.key === STORAGE_KEY) setCurrentUser(readStoredUser());
+      if (e.key === STORAGE_KEY) setCurrentUser(userOf(readSession()));
     };
     window.addEventListener("storage", onStorage);
     return () => window.removeEventListener("storage", onStorage);
   }, []);
 
-  const login = useCallback((user: User) => {
-    const stored: User = { id: user.id, username: user.username, email: user.email, role: user.role ?? "customer" };
+  const login = useCallback((user: User, token?: string) => {
+    const session: Session = {
+      id: user.id,
+      username: user.username,
+      email: user.email,
+      role: user.role ?? "customer",
+      token: token ?? readSession()?.token ?? "",
+    };
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(stored));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
     } catch {
       /* private mode - the session just will not survive a refresh */
     }
-    setCurrentUser(stored);
+    setCurrentUser(userOf(session));
   }, []);
 
   const logout = useCallback(() => {
@@ -75,6 +95,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
     setCurrentUser(null);
   }, []);
+
+  // The API answered 401 to a request that carried the token: it has expired (they last a day)
+  // or was revoked. Sign out, so the guards send the user to the login page.
+  useEffect(() => {
+    window.addEventListener(SESSION_EXPIRED_EVENT, logout);
+    return () => window.removeEventListener(SESSION_EXPIRED_EVENT, logout);
+  }, [logout]);
 
   const value = useMemo<AuthContextValue>(
     () => ({

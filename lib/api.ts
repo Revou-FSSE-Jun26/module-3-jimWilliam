@@ -1,29 +1,21 @@
 import type { ApiErrorBody } from "@/lib/types";
 
 /**
- * Shared by the server and client API helpers.
+ * Shared by the server and client API helpers. The backend is the Flask API (Module 2).
  *
- * NEXT_PUBLIC_API_BASE_URL decides where every request goes. By default that is this app's
- * own /api (the mock of the Module 2 Flask API); set it to the Flask deployment and the whole
- * frontend talks to the real backend instead.
+ *   browser   NEXT_PUBLIC_API_BASE_URL, "/api" by default. next.config.ts rewrites /api/* to the
+ *             Flask API, so the browser only ever talks to this site (no CORS) - except for the
+ *             few /api routes this app answers itself (uploads, page scrapers, logo, cache refresh).
+ *   server    BACKEND_URL, the Flask API's own address, called directly.
  */
 export function apiBase(): string {
-  const configured = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "") || "/api";
-  // An absolute URL (e.g. the Flask deployment) is used as-is, everywhere.
-  if (!configured.startsWith("/")) return configured;
-  // A relative base works as-is in the browser; the server needs an origin to resolve it against.
-  if (typeof window !== "undefined") return configured;
-  return `${serverOrigin()}${configured}`;
+  if (typeof window !== "undefined") return process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "") || "/api";
+  return backendUrl();
 }
 
-function serverOrigin(): string {
-  // On Vercel production use the stable production domain: per-deployment URLs sit behind
-  // Deployment Protection by default, and a server-side fetch to one would get a 401.
-  const host =
-    process.env.VERCEL_ENV === "production"
-      ? (process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL)
-      : process.env.VERCEL_URL;
-  return host ? `https://${host}` : `http://localhost:${process.env.PORT ?? 8100}`;
+/** The Flask API's origin, for server-side code. A local `waitress-serve --port=5000` by default. */
+export function backendUrl(): string {
+  return (process.env.BACKEND_URL || "http://localhost:5000").replace(/\/$/, "");
 }
 
 /** Thrown whenever a response is not ok, carrying the Flask-style `{ error, details }` body. */
@@ -41,7 +33,9 @@ export class ApiError extends Error {
   static async from(res: Response): Promise<ApiError> {
     let body: ApiErrorBody;
     try {
-      body = (await res.json()) as ApiErrorBody;
+      const json = (await res.json()) as ApiErrorBody & { msg?: string };
+      // Flask-JWT-Extended's own errors use { msg } - normalise to { error }
+      body = json.error ? json : { ...json, error: json.msg ?? res.statusText };
     } catch {
       body = { error: res.statusText || `request failed with status ${res.status}` };
     }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import { useAuth } from "@/context/AuthContext";
+import { useSettings } from "@/context/SettingsContext";
 import { ApiError, describeError } from "@/lib/api";
 import { api } from "@/lib/api.client";
 import { afterLoginPath, currentNext } from "@/lib/auth-redirect";
@@ -41,6 +42,7 @@ const FIELDS: { name: keyof RegisterFormData; label: string; type: string; autoC
 export default function RegisterForm() {
   const router = useRouter();
   const { login } = useAuth();
+  const { shop_name: shopName } = useSettings();
   const [data, setData] = useState<RegisterFormData>({ username: "", email: "", password: "", confirmPassword: "" });
   const [errors, setErrors] = useState<RegisterFormErrors>({});
   const [submitting, setSubmitting] = useState(false);
@@ -54,9 +56,10 @@ export default function RegisterForm() {
     setSubmitting(true);
     try {
       const res = await api.register({ username: data.username.trim(), email: data.email.trim(), password: data.password });
-      // 201: keep { id, username, email } as the session, then go home
-      login({ id: res.user.id, username: res.user.username, email: res.user.email, role: res.user.role });
-      toast.success(`Welcome to RevoTech, ${res.user.username}!`);
+      // 201 creates the account; registering doesn't issue a token, so sign straight in for one
+      const session = await api.login({ email: res.user.email, password: data.password });
+      login({ id: res.user.id, username: res.user.username, email: res.user.email, role: res.user.role }, session.access_token);
+      toast.success(`Welcome to ${shopName}, ${res.user.username}!`);
       // home, or back to the page that sent them here (e.g. "Login to buy" -> create account)
       router.push(afterLoginPath("customer", currentNext()));
     } catch (err) {

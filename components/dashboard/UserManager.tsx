@@ -23,7 +23,7 @@ const ROLE_STYLE: Record<Role, string> = {
  * Superadmin only: who has an account, what each may do, and the two things only a superadmin
  * can do to someone else - change their role, and set a new password when they are locked out.
  *
- * The rules live in the API (lib/server/store.ts): nobody changes their own role, and the last
+ * The rules live in the Flask API (PUT /users/<id>): nobody changes their own role, and the last
  * superadmin cannot be demoted. Here those cases are disabled with the reason shown, so the
  * button is never a trap.
  */

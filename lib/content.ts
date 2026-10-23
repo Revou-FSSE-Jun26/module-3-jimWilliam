@@ -1,9 +1,10 @@
 /**
  * Editable site content - the homepage hero, pillars and featured products, and the About
  * page's profile, skills and projects. Admins edit it in place (the "Edit homepage" / "Edit
- * about" bars) and it is stored by the mock API at /api/content/{home,about}.
+ * about" bars) and it is stored by the Flask API at /content/{home,about}.
  *
- * The defaults below are the seed. Validation lives here too, so the admin form and the API
+ * The defaults below are the seed (exported to the API by scripts/export-seed.mjs). Validation
+ * lives here for the admin form; the Flask API (routes/site.py) applies the same rules, so both
  * reject exactly the same things. No imports: scripts/export-seed.mjs loads this file directly.
  */
 

@@ -35,7 +35,8 @@ export default function LoginForm() {
     setSubmitting(true);
     try {
       const res = await api.login({ email: email.trim(), password });
-      login({ id: res.user.id, username: res.user.username, email: res.user.email, role: res.user.role });
+      // keep the user and the API's access token: every later request sends it as a Bearer token
+      login({ id: res.user.id, username: res.user.username, email: res.user.email, role: res.user.role }, res.access_token);
       toast.success(`Welcome back, ${res.user.username}`);
       // admins land on the dashboard; customers go back to where they were, or home
       router.push(afterLoginPath(res.user.role, searchParams.get("next")));

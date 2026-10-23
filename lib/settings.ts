@@ -1,9 +1,10 @@
 /**
- * General store settings, edited by admins in Dashboard -> Settings and stored by the mock API
- * at /api/settings. The logo itself is stored separately (it is converted to SVG on upload -
- * see lib/server/logo.ts); `logo_version` changes whenever it does, to bust caches.
+ * General store settings, edited by admins in Dashboard -> Settings and stored by the Flask API
+ * at /settings. The logo is stored there too, as vector paths (this app traces an upload into
+ * them - see lib/server/logo.ts); `logo_version` changes whenever it does, to bust caches.
  *
- * Shared by the form, the API validation and the pages, so it has no imports.
+ * Shared by the form and the pages, and mirrored by the API's validation (routes/site.py), so it
+ * has no imports.
  */
 export interface SiteSettings {
   shop_name: string;

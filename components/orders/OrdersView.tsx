@@ -3,21 +3,37 @@
 import Link from "next/link";
 import { StatusBadge } from "@/components/ui/Badge";
 import Card from "@/components/ui/Card";
+import { Skeleton } from "@/components/ui/Skeleton";
 import { useSettings } from "@/context/SettingsContext";
 import { useAuth } from "@/context/AuthContext";
+import { useApiData } from "@/hooks/useApiData";
+import { api } from "@/lib/api.client";
 import { buttonVariants } from "@/lib/classes";
 import { formatIDR } from "@/lib/format";
-import type { Order, OrderStatus } from "@/lib/types";
+import type { OrderStatus } from "@/lib/types";
 
 const STEPS: OrderStatus[] = ["pending", "paid", "shipped", "delivered"];
 
 /**
- * The Server Component fetches GET /orders; this narrows it to the signed-in customer. The
- * Flask API does that scoping itself from the JWT - the mock cannot, so it happens here.
+ * The signed-in user's orders. GET /orders needs their token, so this loads in the browser. The
+ * API scopes the list by the token - but answers staff with every customer's order, so the list
+ * is narrowed to the user's own purchases here.
  */
-export default function OrdersView({ orders }: { orders: Order[] }) {
+export default function OrdersView() {
   const { fmt } = useSettings();
   const { currentUser, isAdmin } = useAuth();
+  const { data: orders, error } = useApiData(currentUser ? `orders:${currentUser.id}` : null, api.orders);
+  if (error) throw error; // -> app/orders/error.tsx
+
+  if (!orders) {
+    return (
+      <div className="space-y-4" aria-busy data-testid="orders-loading">
+        {Array.from({ length: 3 }, (_, i) => (
+          <Skeleton key={i} className="h-28 rounded-card" />
+        ))}
+      </div>
+    );
+  }
   const mine = orders.filter((o) => o.user_id === currentUser?.id);
 
   // admins handle everyone's orders in the dashboard; this page is only their own purchases

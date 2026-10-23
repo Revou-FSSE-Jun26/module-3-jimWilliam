@@ -7,11 +7,12 @@ import { serverApi } from "@/lib/api.server";
 export const metadata: Metadata = { title: "Dashboard", robots: { index: false } };
 export const dynamic = "force-dynamic";
 
+// Products and categories are public, so they render on the server; the order stats need the
+// admin's token and load in the browser (ProductManager).
 export default async function DashboardPage() {
-  const [products, categories, orders] = await Promise.all([
+  const [products, categories] = await Promise.all([
     serverApi.products({}, { cache: "no-store" }),
     serverApi.categories({ cache: "no-store" }),
-    serverApi.orders({}, { cache: "no-store" }),
   ]);
 
   return (
@@ -19,7 +20,7 @@ export default async function DashboardPage() {
       <PageHeader eyebrow="Admin" title="Dashboard">
         Stock, revenue and the full product catalogue.
       </PageHeader>
-      <ProductManager initialProducts={products} categories={categories} orders={orders} />
+      <ProductManager initialProducts={products} categories={categories} />
     </RequirePermission>
   );
 }

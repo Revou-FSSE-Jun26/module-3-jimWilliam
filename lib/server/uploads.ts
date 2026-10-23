@@ -147,12 +147,14 @@ async function save(files: [string, Buffer][]): Promise<string> {
 /* ------------------------------------------------------------------ cleanup */
 
 /**
- * Uploads nobody links to are deleted, so storage only ever holds images that are in use:
- *   - as soon as a product is saved without an uploaded image, or deleted (deleteUploads);
+ * Uploads nobody links to are deleted, so storage only ever holds images that are in use
+ * (lib/server/upload-cleanup.ts):
+ *   - as soon as a product is saved without an uploaded image, or deleted - the browser reports
+ *     the URLs it dropped to /api/uploads/release (releaseUploads);
  *   - after a successful upload, a sweep removes any unused upload older than the grace period
- *     (sweepUploads) - images uploaded and then abandoned in a form that was never saved. The
- *     grace period keeps an image that is still in an open, unsaved form from vanishing, and the
- *     sweep runs at most every few minutes per server so it costs next to nothing.
+ *     (sweepUploads) - images uploaded into a form that was never saved, or anything a release
+ *     missed. The grace period keeps an image that is still in an open, unsaved form from
+ *     vanishing, and the sweep runs at most every few minutes per server.
  */
 const ORPHAN_GRACE_MS = Number(process.env.UPLOAD_ORPHAN_GRACE_MINUTES ?? 60) * 60_000;
 const SWEEP_EVERY_MS = 10 * 60_000;
