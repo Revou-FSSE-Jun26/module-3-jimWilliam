@@ -7,6 +7,7 @@ import DomLab from "@/components/about/DomLab";
 import Card from "@/components/ui/Card";
 import { serverApi } from "@/lib/api.server";
 import { buttonVariants } from "@/lib/classes";
+import { PORTFOLIO_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About me",
@@ -51,6 +52,15 @@ export default async function AboutPage() {
             <p className="max-w-2xl whitespace-pre-line text-dim" data-testid="about-intro">
               {about.intro}
             </p>
+            <a
+              href={PORTFOLIO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${buttonVariants.primary} mt-2`}
+              data-testid="about-portfolio"
+            >
+              View my full portfolio ↗<span className="sr-only"> (opens in a new tab)</span>
+            </a>
           </div>
         </div>
         <dl className="relative mt-10 grid grid-cols-3 gap-4 border-t border-line pt-6 sm:max-w-md">

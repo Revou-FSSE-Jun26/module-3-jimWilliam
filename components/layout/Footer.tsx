@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Brand from "@/components/layout/Brand";
 import type { SiteSettings } from "@/lib/settings";
+import { PORTFOLIO_URL } from "@/lib/site";
 
 const COLUMNS = [
   {
@@ -24,6 +25,7 @@ const COLUMNS = [
     title: "About",
     links: [
       { href: "/about", label: "About me" },
+      { href: PORTFOLIO_URL, label: "My portfolio" },
       { href: "https://github.com/jim1504/Revou-revoshop-jim1504", label: "Backend API (Module 2)" },
     ],
   },
