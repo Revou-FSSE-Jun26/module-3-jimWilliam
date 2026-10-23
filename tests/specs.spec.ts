@@ -49,8 +49,12 @@ test.describe("technical specifications", () => {
 test.describe("admin specifications editor", () => {
   test.use({ storageState: ADMIN_STATE });
 
-  test("paste a spec table, edit a row and save", async ({ page, request, baseURL }) => {
-    test.skip(!/localhost|127\.0\.0\.1/.test(baseURL ?? ""), "the saved product is read back from the same in-memory store");
+  test("paste a spec table, edit a row and save", async ({ page, request, baseURL, browserName }) => {
+    test.skip(!/localhost|127\.0\.0\.1/.test(baseURL ?? ""), "writes to the database");
+    // The spec simulates the paste with a script-made ClipboardEvent; Firefox drops the data such an
+    // event carries (a real paste works). The other three browsers run it, and "pasted HTML is
+    // turned into grouped rows" covers the parsing everywhere.
+    test.skip(browserName === "firefox", "Firefox ignores clipboardData on a script-made paste event");
 
     const name = `PW Spec Fan ${Date.now().toString(36)}`;
     const created = await request.post("/api/products", {

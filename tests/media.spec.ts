@@ -41,14 +41,24 @@ test.describe("product gallery", () => {
     const box = (await frame.boundingBox())!;
     await expect(page.getByTestId("gallery-zoom")).toHaveCount(0);
 
+    // Firefox and WebKit round the pointer to whole pixels, so the position is checked to within half a percent
+    const zoomAt = async (x: number, y: number) => {
+      await expect
+        .poll(async () => {
+          const m = /background-position: ([\d.]+)% ([\d.]+)%/.exec((await zoom.getAttribute("style")) ?? "");
+          return m ? Math.abs(Number(m[1]) - x) < 0.5 && Math.abs(Number(m[2]) - y) < 0.5 : false;
+        })
+        .toBe(true);
+    };
+
     await page.mouse.move(box.x + box.width * 0.25, box.y + box.height * 0.5);
     const zoom = page.getByTestId("gallery-zoom");
-    await expect(zoom).toHaveAttribute("style", /background-position: 25% 50%/);
+    await zoomAt(25, 50);
     // the full-resolution master, not the responsive variant shown on screen
     await expect(zoom).toHaveAttribute("style", /url\("\/products\/msi-geforce-rtx-5070-12g-gaming-trio-oc\.avif"\)/);
 
     await page.mouse.move(box.x + box.width * 0.75, box.y + box.height * 0.2);
-    await expect(zoom).toHaveAttribute("style", /background-position: 75% 20%/);
+    await zoomAt(75, 20);
 
     await page.mouse.move(box.x - 40, box.y - 40);
     await expect(page.getByTestId("gallery-zoom")).toHaveCount(0);
@@ -59,7 +69,7 @@ test.describe("product images API", () => {
   test("a product cannot point at an image hosted elsewhere", async ({ request }) => {
     const res = await request.put("/api/products/4", { data: { images: ["https://example.com/board.jpg"] } });
     expect(res.status()).toBe(400);
-    expect((await res.json()).details.join(" ")).toContain("images must be uploaded");
+    expect((await res.json()).details.join(" ")).toContain("images must be AVIF files uploaded through the storefront");
   });
 
   test("a product holds at most 12 images", async ({ request }) => {
@@ -95,8 +105,11 @@ test.describe("product images API", () => {
 });
 
 test.describe("upload cleanup", () => {
+  // The app reports the images a product dropped to /api/uploads/release right after the API
+  // confirms the write (lib/api.client.ts); this spec writes through the API, so it does the same.
   test("uploads a product stops using are deleted, unless another product still uses them", async ({ request, baseURL }) => {
     test.skip(!isLocal(baseURL), "uploads live on one serverless instance's disk");
+    const release = (urls: string[]) => request.post("/api/uploads/release", { data: { urls } });
     const upload = async (color: string) =>
       (await (await request.post("/api/uploads", { multipart: { file: { name: "x.png", mimeType: "image/png", buffer: await png(color) } } })).json()).url as string;
     const [solo, shared] = [await upload("#16a34a"), await upload("#9333ea")];
@@ -109,13 +122,18 @@ test.describe("upload cleanup", () => {
     try {
       // A drops both images: its own upload is deleted (all sizes), the shared one stays for B
       await request.put(`/api/products/${a}`, { data: { images: [] } });
-      await expect.poll(() => status(solo)).toBe(404);
+      expect((await (await release([solo, shared])).json()).removed).toBe(1);
+      expect(await status(solo)).toBe(404);
       expect(await status(solo.replace(".avif", "@400.avif"))).toBe(404);
       expect(await status(shared)).toBe(200);
 
       // deleting B, the last product using it, deletes the shared upload too
       await request.delete(`/api/products/${b}`);
-      await expect.poll(() => status(shared)).toBe(404);
+      await release([shared]);
+      expect(await status(shared)).toBe(404);
+
+      // seeded photos are never touched, whatever is reported
+      expect((await (await release(["/products/intel-core-ultra-5-250k-plus.avif"])).json()).removed).toBe(0);
     } finally {
       await request.delete(`/api/products/${a}`);
       await request.delete(`/api/products/${b}`);

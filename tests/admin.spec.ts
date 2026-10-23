@@ -1,15 +1,15 @@
 import { readFileSync } from "node:fs";
 import type { APIRequestContext } from "@playwright/test";
-import { expect, test } from "./fixtures";
+import { expect, refreshPages, test } from "./fixtures";
 import { ADMIN_STATE, CUSTOMER_STATE } from "./global-setup";
 
 /**
  * Admin tools on the storefront itself: edit a product from its page, edit the homepage and
  * About content in place, and handle orders in Dashboard -> Orders.
  *
- * These write to the shared in-memory store and read the result back, so the specs that
- * change data run locally only (on Vercel the write and the read can hit different instances),
- * and every one puts things back in `finally`.
+ * These write to the database and read the result back, so the specs that change data run
+ * locally only (against the e2e database - never production), and every one puts things back in
+ * `finally`.
  */
 const isLocal = (baseURL?: string) => /localhost|127\.0\.0\.1/.test(baseURL ?? "");
 
@@ -53,7 +53,7 @@ test.describe("admin editing in place", () => {
   test.use({ storageState: ADMIN_STATE });
 
   test("edit a product from its own page", async ({ page, request, baseURL }) => {
-    test.skip(!isLocal(baseURL), "writes to the in-memory store");
+    test.skip(!isLocal(baseURL), "writes to the database");
     const before = await (await request.get("/api/products/15")).json();
     try {
       await page.goto("/products/15");
@@ -67,11 +67,12 @@ test.describe("admin editing in place", () => {
       await expect(page.getByTestId("product-detail-price")).toHaveText(/455\.000/);
     } finally {
       await request.put("/api/products/15", { data: { price: before.price } });
+      await refreshPages(request, ["catalog"]);
     }
   });
 
   test("edit the homepage", async ({ page, request, baseURL }) => {
-    test.skip(!isLocal(baseURL), "writes to the in-memory store");
+    test.skip(!isLocal(baseURL), "writes to the database");
     const before = await (await request.get("/api/content/home")).json();
     try {
       await page.goto("/");
@@ -106,11 +107,12 @@ test.describe("admin editing in place", () => {
       ]);
     } finally {
       await request.put("/api/content/home", { data: before });
+      await refreshPages(request, ["content-home"]);
     }
   });
 
   test("edit the About page", async ({ page, request, baseURL }) => {
-    test.skip(!isLocal(baseURL), "writes to the in-memory store");
+    test.skip(!isLocal(baseURL), "writes to the database");
     const before = await (await request.get("/api/content/about")).json();
     try {
       await page.goto("/about");
@@ -128,6 +130,7 @@ test.describe("admin editing in place", () => {
       await expect(page.getByRole("heading", { name: "Testing", exact: true })).toHaveCount(0);
     } finally {
       await request.put("/api/content/about", { data: before });
+      await refreshPages(request, ["content-about"]);
     }
   });
 
@@ -159,7 +162,7 @@ test.describe("order handling", () => {
   });
 
   test("move an order along, cancel it and reopen it", async ({ page, request, baseURL }) => {
-    test.skip(!isLocal(baseURL), "writes to the in-memory store");
+    test.skip(!isLocal(baseURL), "writes to the database");
     const productId = 16; // Arctic P12, plenty of stock
     const stock = await stockOf(request, productId);
     const { order_id } = await placeOrder(request, productId);

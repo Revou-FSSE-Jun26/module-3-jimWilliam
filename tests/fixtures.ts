@@ -1,6 +1,13 @@
-import { test as base } from "@playwright/test";
+import { readFileSync } from "node:fs";
+import { test as base, type APIRequestContext } from "@playwright/test";
 import { PROMO, PROMO_STORAGE_KEY } from "../lib/promo";
-import { SUPERADMIN_ID } from "./global-setup";
+import { TOKENS_FILE, type Role } from "./global-setup";
+
+/** `Authorization: Bearer <token>` for one of the sessions tests/global-setup.ts signed in. */
+export function bearer(role: Role): Record<string, string> {
+  const tokens = JSON.parse(readFileSync(TOKENS_FILE, "utf8")) as Record<Role, string>;
+  return { authorization: `Bearer ${tokens[role]}` };
+}
 
 /**
  * Every spec imports `test` from here instead of @playwright/test.
@@ -24,9 +31,32 @@ export const test = base.extend({
     await page.addInitScript(([key, id]) => localStorage.setItem(key, id), [PROMO_STORAGE_KEY, PROMO.id]);
     const goto = page.goto.bind(page);
     page.goto = async (url, options) => {
-      const response = await goto(url, options);
+      let response;
+      try {
+        response = await goto(url, options);
+      } catch (e) {
+        // Firefox and WebKit abort a goto that races the app's own navigation still settling (the
+        // router.push after a login, the router.refresh after a save); Chromium lets it through.
+        // Once that navigation has landed, go where the spec asked.
+        if (!/interrupted by another navigation|NS_BINDING_ABORTED|frame was detached/.test(String(e))) throw e;
+        await page.waitForLoadState("load").catch(() => {});
+        response = await goto(url, options);
+      }
       await page
         .waitForFunction(() => !document.querySelector('div[hidden][id^="S:"]'), undefined, { timeout: 5_000 })
+        .catch(() => {});
+      // Typing into a form before React hydrates it is lost: hydration resets controlled inputs
+      // (slower engines like WebKit show it). React tags each hydrated element with a
+      // `__reactFiber$...` key, so wait for that on the header and on any form on the page.
+      await page
+        .waitForFunction(
+          () =>
+            [document.querySelector('[data-testid="site-header"]'), ...document.querySelectorAll("main form")]
+              .filter((el) => el !== null)
+              .every((el) => Object.keys(el!).some((k) => k.startsWith("__reactFiber$"))),
+          undefined,
+          { timeout: 10_000 }
+        )
         .catch(() => {});
       return response;
     };
@@ -34,10 +64,19 @@ export const test = base.extend({
   },
 
   request: async ({ playwright, baseURL }, use) => {
-    const context = await playwright.request.newContext({ baseURL, extraHTTPHeaders: { "x-user-id": String(SUPERADMIN_ID) } });
+    const context = await playwright.request.newContext({ baseURL, extraHTTPHeaders: bearer("superadmin") });
     await use(context);
     await context.dispose();
   },
 });
 
 export { expect } from "@playwright/test";
+
+/**
+ * Specs that change data straight through the API (setup, or putting things back in `finally`)
+ * must also refresh the cached pages that show it, as the app does after its own writes -
+ * otherwise a later spec could be served the changed page. `request` is the superadmin fixture.
+ */
+export async function refreshPages(request: { post: APIRequestContext["post"] }, tags: string[]) {
+  await request.post("/api/revalidate", { data: { tags } });
+}

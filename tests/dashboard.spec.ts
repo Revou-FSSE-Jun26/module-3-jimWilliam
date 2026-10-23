@@ -6,10 +6,9 @@ import { ADMIN_STATE } from "./global-setup";
 test.use({ storageState: ADMIN_STATE });
 
 /**
- * On Vercel the mock API's in-memory store lives per serverless instance, so a product created
- * by one request may be unknown to the instance that serves the next. When the suite runs
- * against a remote deployment, the endpoints for *the product this test creates* are answered
- * by a small stateful page.route() mock instead; locally every call goes to the real API.
+ * Against a deployed site this spec must not create real products in the production database,
+ * so there the endpoints for *the product this test creates* are answered by a small stateful
+ * page.route() mock instead. Locally every call goes to the real API (the e2e database).
  */
 async function pinCreatedProduct(page: Page) {
   let created: Record<string, unknown> | null = null;
@@ -62,7 +61,10 @@ test.describe("admin dashboard", () => {
     await expect(page.getByText(`Saved ${name}`)).toBeVisible();
     await expect(row.getByTestId("row-price")).toHaveText(/699\.000/);
 
-    // delete, with the inline confirmation
+    // delete, with the inline confirmation - once the earlier toasts have cleared, since they sit
+    // over the bottom-right corner where the new product's row ends up
+    await expect(page.getByText(`Created ${name}`)).toBeHidden();
+    await expect(page.getByText(`Saved ${name}`)).toBeHidden();
     await row.getByTestId("delete-product").click();
     await expect(row.getByTestId("confirm-delete")).toContainText("Are you sure?");
     await row.getByTestId("confirm-delete-yes").click();

@@ -1,10 +1,12 @@
 import sharp from "sharp";
-import { expect, test } from "./fixtures";
+import { expect, refreshPages, test } from "./fixtures";
 import { SUPERADMIN_STATE } from "./global-setup";
 
 /**
- * Dashboard -> Settings: shop name, time zone and format, contact details, and the logo, which
- * is converted to SVG on upload. Specs that change settings put them back in `finally`.
+ * Dashboard -> Settings: shop name, time zone and format, contact details, and the logo. The API
+ * stores the settings and the logo's vector paths; this app traces an upload into those paths
+ * (/api/logo/vectorize) and serves the SVG (/api/logo). Specs that change settings put them back
+ * in `finally`. The settings validation itself is unit-tested in the backend (tests/test_site.py).
  */
 const isLocal = (baseURL?: string) => /localhost|127\.0\.0\.1/.test(baseURL ?? "");
 
@@ -28,30 +30,32 @@ test.describe("settings API", () => {
   });
 
   test("serves the logo as a locked-down SVG, in full and square icon variants", async ({ request }) => {
-    for (const url of ["/api/settings/logo", "/api/settings/logo?variant=icon"]) {
+    for (const url of ["/api/logo", "/api/logo?variant=icon"]) {
       const res = await request.get(url);
       expect(res.headers()["content-type"]).toContain("image/svg+xml");
       expect(res.headers()["content-security-policy"]).toContain("default-src 'none'");
       expect(await res.text()).toMatch(/^<svg[^>]*viewBox=/);
     }
-    const icon = await (await request.get("/api/settings/logo?variant=icon")).text();
+    const icon = await (await request.get("/api/logo?variant=icon")).text();
     const [, , w, h] = icon.match(/viewBox="([^"]+)"/)![1].split(" ").map(Number);
     expect(w).toBe(h); // square, for the browser tab
   });
 
   test("converts an uploaded image to SVG paths with its real colours", async ({ request }) => {
-    const res = await request.post("/api/settings/logo", { multipart: { file: { name: "logo.png", mimeType: "image/png", buffer: await flatLogo() } } });
+    const res = await request.post("/api/logo/vectorize", { multipart: { file: { name: "logo.png", mimeType: "image/png", buffer: await flatLogo() } } });
     expect(res.status()).toBe(200);
     const body = await res.json();
     expect(body.colours.sort()).toEqual(["#111111", "#e11d48"]);
     expect(body.svg).toMatch(/<path fill="#e11d48" d="M /);
+    // the vector is what the API stores - and it accepts it as-is
+    expect(body.vector.paths.length).toBe(body.paths);
   });
 
   test("never copies anything from an uploaded SVG into the logo", async ({ request }) => {
     const hostile = Buffer.from(
       `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200"><script>alert(1)</script><rect width="400" height="200" fill="#fff"/><rect x="50" y="50" width="300" height="100" fill="#2563eb" onload="alert(2)"/></svg>`
     );
-    const res = await request.post("/api/settings/logo", { multipart: { file: { name: "logo.svg", mimeType: "image/svg+xml", buffer: hostile } } });
+    const res = await request.post("/api/logo/vectorize", { multipart: { file: { name: "logo.svg", mimeType: "image/svg+xml", buffer: hostile } } });
     expect(res.status()).toBe(200);
     const { svg } = await res.json();
     expect(svg).not.toMatch(/script|onload|alert/i);
@@ -59,7 +63,7 @@ test.describe("settings API", () => {
   });
 
   test("rejects files that aren't logos", async ({ request }) => {
-    const res = await request.post("/api/settings/logo", { multipart: { file: { name: "x.png", mimeType: "image/png", buffer: Buffer.from("not an image") } } });
+    const res = await request.post("/api/logo/vectorize", { multipart: { file: { name: "x.png", mimeType: "image/png", buffer: Buffer.from("not an image") } } });
     expect(res.status()).toBe(400);
   });
 });
@@ -68,7 +72,7 @@ test.describe("settings page", () => {
   test.use({ storageState: SUPERADMIN_STATE });
 
   test("rename the shop and change the time zone", async ({ page, request, baseURL }) => {
-    test.skip(!isLocal(baseURL), "writes to the in-memory store");
+    test.skip(!isLocal(baseURL), "writes to the database");
     const before = await (await request.get("/api/settings")).json();
     try {
       await page.goto("/dashboard/settings");
@@ -87,11 +91,12 @@ test.describe("settings page", () => {
       await expect(page.getByTestId("admin-order-row").first().locator("td").nth(2)).toContainText(/(am|pm) WITA$/);
     } finally {
       await request.put("/api/settings", { data: before });
+      await refreshPages(request, ["settings"]);
     }
   });
 
   test("upload a logo: preview, apply, and the favicon follows", async ({ page, request, baseURL }) => {
-    test.skip(!isLocal(baseURL), "writes to the in-memory store");
+    test.skip(!isLocal(baseURL), "writes to the database");
     try {
       await page.goto("/dashboard/settings");
       const version = (await (await request.get("/api/settings")).json()).logo_version;
@@ -101,10 +106,11 @@ test.describe("settings page", () => {
       await expect(page.getByText("Logo updated")).toBeVisible();
 
       await page.goto("/");
-      await expect(page.locator('link[rel="icon"]')).toHaveAttribute("href", `/api/settings/logo?variant=icon&v=${version + 1}`);
-      expect(await (await request.get("/api/settings/logo")).text()).toContain('fill="#e11d48"');
+      await expect(page.locator('link[rel="icon"]')).toHaveAttribute("href", `/api/logo?variant=icon&v=${version + 1}`);
+      expect(await (await request.get("/api/logo")).text()).toContain('fill="#e11d48"');
     } finally {
       await request.delete("/api/settings/logo");
+      await refreshPages(request, ["settings"]);
     }
   });
 });
