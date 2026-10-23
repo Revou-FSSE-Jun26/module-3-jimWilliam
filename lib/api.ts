@@ -15,7 +15,19 @@ export function apiBase(): string {
 
 /** The Flask API's origin, for server-side code. A local `waitress-serve --port=5000` by default. */
 export function backendUrl(): string {
-  return (process.env.BACKEND_URL || "http://localhost:5000").replace(/\/$/, "");
+  const url = process.env.BACKEND_URL?.trim(); // a pasted value often carries a stray space
+  // On Vercel there is no local API to fall back to. Say what is missing, instead of failing later
+  // with "fetch failed ... ECONNREFUSED 127.0.0.1:5000" while the build prerenders the catalogue.
+  if (!url && process.env.VERCEL) {
+    throw new Error(
+      "BACKEND_URL is not set. Add it under the Vercel project's Settings → Environment Variables (the Flask API's address, e.g. https://revotech-m2.vercel.app), then redeploy."
+    );
+  }
+  // Without the scheme the /api rewrite is rejected ("Invalid rewrite found") and server fetches fail.
+  if (url && !/^https?:\/\/[^\s/]+/.test(url)) {
+    throw new Error(`BACKEND_URL must be a full address starting with https:// (e.g. https://revotech-m2.vercel.app), got "${url}".`);
+  }
+  return (url || "http://localhost:5000").replace(/\/+$/, "");
 }
 
 /** Thrown whenever a response is not ok, carrying the Flask-style `{ error, details }` body. */

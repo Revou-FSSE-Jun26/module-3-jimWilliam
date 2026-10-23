@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { backendUrl } from "./lib/api";
 import { PORTFOLIO_URL } from "./lib/site";
 
 const nextConfig: NextConfig = {
@@ -24,8 +25,7 @@ const nextConfig: NextConfig = {
   // own /api routes (uploads, images/[file], logo, page scrapers, revalidate) are answered here
   // first; a plain-array rewrite would run before dynamic routes and swallow /api/images/[file].
   async rewrites() {
-    const backend = (process.env.BACKEND_URL || "http://localhost:5000").replace(/\/$/, "");
-    return { beforeFiles: [], afterFiles: [], fallback: [{ source: "/api/:path*", destination: `${backend}/:path*` }] };
+    return { beforeFiles: [], afterFiles: [], fallback: [{ source: "/api/:path*", destination: `${backendUrl()}/:path*` }] };
   },
 };
 
