@@ -20,7 +20,7 @@ Live search · cart and checkout · an admin dashboard · a build planner that c
 [![React](https://img.shields.io/badge/React-19.3-61dafb?style=flat-square&logo=react&logoColor=61dafb&labelColor=0d1425)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178c6?style=flat-square&logo=typescript&logoColor=white&labelColor=0d1425)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?style=flat-square&logo=tailwindcss&logoColor=38bdf8&labelColor=0d1425)](https://tailwindcss.com)
-[![Node.js](https://img.shields.io/badge/Node.js-24+-5fa04e?style=flat-square&logo=nodedotjs&logoColor=5fa04e&labelColor=0d1425)](https://nodejs.org)
+[![Node.js](https://img.shields.io/badge/Node.js-24.x-5fa04e?style=flat-square&logo=nodedotjs&logoColor=5fa04e&labelColor=0d1425)](https://nodejs.org)
 [![Playwright](https://img.shields.io/badge/Playwright-1.64-2ead33?style=flat-square&logo=playwright&logoColor=2ead33&labelColor=0d1425)](https://playwright.dev)
 <br/>
 [![Python](https://img.shields.io/badge/Python-3.14-3776ab?style=flat-square&logo=python&logoColor=ffd43b&labelColor=0d1425)](https://www.python.org)
@@ -145,7 +145,7 @@ borders and monospace numerals.
 </table>
 
 > [!NOTE]
-> **Node.js 24 or newer** (`engines` in `package.json`). Vercel's default runtime is 24.x, and `@types/node` matches it.
+> **Node.js 24.x** (`engines` in `package.json`, pinned to one major so Vercel never jumps to a new Node major on its own). It is Vercel's default and newest runtime, and `@types/node` matches it. Newer Node versions work locally too.
 
 <details>
 <summary><b>🧊 Version notes: what's held back, and why</b></summary>
