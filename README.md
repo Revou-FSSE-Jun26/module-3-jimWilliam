@@ -155,10 +155,11 @@ borders and monospace numerals.
   won't load with TypeScript 7, because it needs the JavaScript compiler API that 7.0 doesn't ship. 6.0 is the
   newest version it supports (`<6.1.0`).
 - **ESLint 10** is in use; `eslint-config-next` supports it from 16.4.0 (per the Next.js 16 upgrade guide, and
-  checked here: every rule family still fires). `npm install` prints `ERESOLVE overriding peer dependency` warnings,
-  because three plugins bundled in `eslint-config-next` (react, jsx-a11y, import) haven't widened their declared
-  ESLint range yet. The warnings are about version metadata only. Next 16 doesn't lint during `next build`, so they
-  can't affect a deploy either.
+  checked here: every rule family still fires). Three plugins bundled in `eslint-config-next` (react, jsx-a11y,
+  import) haven't widened their declared ESLint range to 10 yet, which made `npm install` print
+  `ERESOLVE overriding peer dependency` warnings. The `overrides` block in `package.json` tells npm those three use
+  the project's ESLint (`"eslint": "$eslint"`), so installs are quiet. Once the plugins declare ESLint 10, the block
+  can go.
 - **`allowScripts`** in `package.json` is the list npm 12 uses to decide which dependencies may run install scripts.
   `unrs-resolver` is denied, because its script only downloads a native binary that npm already installs.
 
